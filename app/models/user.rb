@@ -4,8 +4,9 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
   has_many :posts
-  has_many :parents
-  alias_attribute :parent_obligations, :parents
+  has_many :parent_obligations
+  has_many :school_classes
+ 
          
          
          
