@@ -10,3 +10,5 @@ User.create(email: 'juan.celhay@gmail.com',
              name: 'Juan Celhay',
              password_confirmation: 'mamamia123',
              teacher: true)
+School.create(name: 'Colegio SiemprePenca')
+SchoolClass.create(name: '3°A', securityCode: '12345', user_id: 1, school_id: 1)
