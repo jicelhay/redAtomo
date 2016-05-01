@@ -1,6 +1,21 @@
 <h1>redAtomo</h1>
-<p>hola <%=@user.name%></p>
+<p>Hola <%=@user.name%>!</p>
+<p>Estas en el curso: <%=@school_class.name%></p>
+<h2>Apoderados inscritos</h2>
 <ul>
-  <li><%=link_to('Crear nuevo post',new_school_class_post_path(@user))%></li>
+<% @school_class.parents.each do |parent| %>
+<li><%=parent.name%></li>
+<%end%>
 </ul>
+<h2>Avisos anteriores</h2>
+<ul>
+<%@school_class.posts.each do |post| %>
+<li>
+<h3><%=post.title%></h3>
+<span>Escrito por <%=post.author.name%></span>
+<p><%=post.body%></p>
+</li>
+<%end%>
+</ul>
+<button><%=link_to('Crear nuevo post',new_school_class_post_path(@user))%></button>
 

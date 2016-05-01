@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_post, only: :new
+  before_action :authorize_post!, only: [:new,:create]
   before_filter :authenticate_user!
 
   # GET /posts
@@ -26,14 +26,15 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(post_params)
-
+    @post = Post.new(title: params[:post][:title], body: params[:post][:body], school_class_id: params[:school_class_id], user_id: current_user.id)
+    
     respond_to do |format|
       if @post.save
-        format.html { redirect_to @post, notice: 'Post was successfully created.' }
+        puts @post.title
+        format.html { redirect_to url_for(controller: :home, action: :index)}
         format.json { render :show, status: :created, location: @post }
       else
-        format.html { render :new }
+        format.html { render 'home#index' }
         format.json { render json: @post.errors, status: :unprocessable_entity }
       end
     end
@@ -58,7 +59,7 @@ class PostsController < ApplicationController
   def destroy
     @post.destroy
     respond_to do |format|
-      format.html { redirect_to posts_url, notice: 'Post was successfully destroyed.' }
+      format.html { redirect_to root }
       format.json { head :no_content }
     end
   end
@@ -71,12 +72,18 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.fetch(:post, {})
+      params.require(:post).permit(:title,:body,:school_class_id)
     end
     
-    def authorize_post
+    def authorize_post!
     #setear curso y ver si usuario logeado coincide con profesor del curso
-    @school_class = SchoolClass.find(params[:school_class_id])
-    return current_user.equal?(@school_class.teacher)
+      @school_class = SchoolClass.find(params[:school_class_id])
+      unless current_user.equal?(@school_class.teacher) do
+         controller.flash[:error] = "Debes ser profesor del curso para crear un nuevo anuncio"
+         controller.redirect_to url_for(controller: :home, action: :index)
+      end
     end
+    end
+    
 end
+

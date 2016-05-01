@@ -42,6 +42,7 @@ group :development, :test do
   gem 'byebug'
   gem 'capistrano-rails'
   gem 'capistrano-rbenv', '~> 2.0', require: false
+  gem 'annotate'
 end
 
 group :development do
