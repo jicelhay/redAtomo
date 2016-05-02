@@ -3,7 +3,7 @@
 </header>
 <% # nav va al costado izquierdo %>
 <nav>
-<p> hello </p>
+<p> <%=button_to('Config',school_class_path(@school_class), method: :get)%></p>
 </nav>
 <main>
   <div class="categorias">
@@ -12,7 +12,6 @@
     <h3><a href="#">Multimedia</a></h3>
   </div>
 </main>
-
 
 <% # Versión vieja %>
 <!---

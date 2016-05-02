@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+
   devise_for :users
 
   root 'home#index'
@@ -7,6 +8,9 @@ Rails.application.routes.draw do
   resources :school_classes do
     resources :posts
   end
+  
+  resources :parent_obligation, only: [:create,:destroy] 
+  
 end
 
 # == Route Map
