@@ -1,3 +1,22 @@
+<header>
+<h1> RedAtomo </h1>
+</header>
+<% # nav va al costado izquierdo %>
+<nav>
+<p> hello </p>
+</nav>
+<main>
+  <div class="categorias">
+    <h3><a href="#">Todo</a></h3>
+    <h3><a href="#">Avisos</a></h3>
+    <h3><a href="#">Multimedia</a></h3>
+  </div>
+</main>
+
+
+<% # Versión vieja %>
+<!---
+<% if false %>
 <h1>redAtomo</h1>
 <p>Hola <%=@user.name%>!</p>
 <p>Estas en el curso: <%=@school_class.name%></p>
@@ -17,5 +36,6 @@
 </li>
 <%end%>
 </ul>
-<button><%=link_to('Crear nuevo post',new_school_class_post_path(@user))%></button>
-
+<%=button_to('Crear nuevo post',new_school_class_post_path(@user), method: :get)%>
+<% end %>
+-->

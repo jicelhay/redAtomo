@@ -1,3 +1,42 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+// -------------------------- Propiedades Macro (General) --------------------------
+body {
+  margin: 0px;
+}
+
+// -------------------------- Propiedades Header --------------------------
+header {
+  width: 100%;
+  background-color: red;
+  margin: 0;
+}
+header h1 {
+  text-align: center;
+  margin: 0;
+}
+
+// -------------------------- Propiedades Nav-bar --------------------------
+nav {
+  width: 30%;
+  float: left;
+  background-color: yellow;
+}
+// -------------------------- Propiedades Main --------------------------
+main {
+  width: 70%;
+  float: left;
+  background-color: orange;
+  height: 2000px;
+  background-image: url(/images/bg-notebook-top.jpg), url(/images/bg-notebook-body.jpg);
+  background-position-y: 0px, 401px;
+  background-repeat: no-repeat, repeat-y;
+  background-size: 100% 401px, 100% 97px;
+  z-index: -2, -1;
+}
+main .categorias,main .categorias h3 {
+  width: 5%;
+  float: left;
+}
