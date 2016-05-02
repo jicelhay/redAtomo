@@ -1,10 +1,52 @@
 <header>
+  <h1> RedAtomo </h1>
+</header>
+
+<nav>
+  <div class="post-it selected">
+    <%= link_to('Inicio',"#", method: :get)%>
+  </div>
+  <div class="post-it y-bg">
+    <%= link_to('Avisos',"#", method: :get)%>
+  </div>
+  <div class="post-it b-bg">
+    <%= link_to('Multimedia',"#", method: :get)%>
+  </div>
+  <div class="post-it o-bg">
+    <%= link_to('Configuración',school_class_path(@school_class), method: :get)%>
+  </div>
+</nav>
+
+<div id="paper">
+
+  <!-- Generación de líneas rojas del cuaderno -->
+  <div class="lines"></div>
+
+  <ul class="list">
+    <li>&nbsp</li>
+    <li>&nbsp</li>
+    <li>Sit Downfasdfasdf asdfg adsfgjn  fsdl vkjafslkh vbsdfkhfvb kahbsdf vlkhdfb vlkhdfvlkh ssfd lkjhbdsf lkvbnzsdfklnvb lskfjnvblz kdfjnb</li>
+    <li><img style="vertical-align:top" src="/images/bg-notebook-body.jpg" height="200px" width="350px"/></li>
+    <li>Join a hangout in google+</li>
+    <%@school_class.posts.each do |post| %>
+    <li>
+    <h3><%=post.title%></h3>
+    <span>Escrito por <%=post.author.name%></span>
+    <p><%=post.body%></p>
+    </li>
+    <% end %>
+  </ul>
+</div>
+
+
+
+
+<!---
+<% if false %>
+
+<header>
 <h1> RedAtomo </h1>
 </header>
-<% # nav va al costado izquierdo %>
-<nav>
-<p> <%=button_to('Config',school_class_path(@school_class), method: :get)%></p>
-</nav>
 <main>
   <div class="categorias">
     <h3><a href="#">Todo</a></h3>
@@ -14,8 +56,7 @@
 </main>
 
 <% # Versión vieja %>
-<!---
-<% if false %>
+
 <h1>redAtomo</h1>
 <p>Hola <%=@user.name%>!</p>
 <p>Estas en el curso: <%=@school_class.name%></p>
