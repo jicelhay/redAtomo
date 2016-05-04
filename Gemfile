@@ -32,6 +32,9 @@ gem 'font-awesome-rails'
 # Bootstrap (Cool Easy Styling, thank you twitter!)
 gem 'bootstrap-sass', '~> 3.3.5.1'
 
+#Material theme
+gem 'materialize-sass'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
