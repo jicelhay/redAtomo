@@ -3,9 +3,19 @@ before_filter :authenticate_user!
 before_action :authenticate_teacher
 
 def show
-
 end
 
+def update
+  respond_to do |format|
+      if @school_class.update(name: params[:school_class][:name], securityCode: params[:school_class][:securityCode])
+        format.html { redirect_to @school_class, notice: 'Datos de curso actualizado' }
+        format.json { render :show, status: :ok, location: @school_class }
+      else
+        format.html { render :edit }
+        format.json { render json: @school_class.errors, status: :unprocessable_entity }
+      end
+    end
+end
 
 def set_school_class
 @school_class = SchoolClass.find(params[:id])

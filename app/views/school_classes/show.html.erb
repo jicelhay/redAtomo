@@ -8,7 +8,7 @@
 <% @school_class.parents.each do |parent|%>
     <li>
     <%=parent.name%>
-    <%= link_to(fa_icon("trash-o"),parent_obligation_path(parent.id),method: :destroy)%>
+    <%= link_to(fa_icon("trash-o"),school_class_parent_obligation_path(@school_class.id,parent.id),method: :delete)%>
     </li>
 <%end%>
 </ul>

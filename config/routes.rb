@@ -1,15 +1,14 @@
 Rails.application.routes.draw do
 
+  root 'home#index'
 
   devise_for :users
 
-  root 'home#index'
-
   resources :school_classes do
     resources :posts
+    resources :parent_obligation, only: [:create,:destroy]
   end
-  
-  resources :parent_obligation, only: [:create,:destroy] 
+   
   
 end
 
