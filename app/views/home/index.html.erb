@@ -1,33 +1,30 @@
 <header>
-  <h1> RedAtomo </h1>
+  <h1>redATOMO</h1>
 </header>
 
 <nav>
   <div class="post-it selected">
-    <%= link_to('Inicio',"#", method: :get)%>
+    <%= link_to('AVISOS',"#", method: :get)%>
   </div>
   <div class="post-it y-bg">
-    <%= link_to('Avisos',"#", method: :get)%>
+    <%= link_to('MULTIMEDIA',"#", method: :get)%>
   </div>
   <div class="post-it b-bg">
-    <%= link_to('Multimedia',"#", method: :get)%>
+    <%= link_to('COMUNICACIONES',"#", method: :get)%>
   </div>
   <div class="post-it o-bg">
-    <%= link_to('Configuración',school_class_path(@school_class), method: :get)%>
+    <%= link_to('CONFIGURACION',school_class_path(@school_class), method: :get)%>
   </div>
 </nav>
 
 <div id="paper">
 
   <!-- Generación de líneas rojas del cuaderno -->
-  <div class="lines"></div>
+  <!-- <div class="lines"></div> -->
 
   <ul class="list">
     <li>&nbsp</li>
     <li>&nbsp</li>
-    <li>Sit Downfasdfasdf asdfg adsfgjn  fsdl vkjafslkh vbsdfkhfvb kahbsdf vlkhdfb vlkhdfvlkh ssfd lkjhbdsf lkvbnzsdfklnvb lskfjnvblz kdfjnb</li>
-    <li><img style="vertical-align:top" src="/images/bg-notebook-body.jpg" height="200px" width="350px"/></li>
-    <li>Join a hangout in google+</li>
     <%@school_class.posts.each do |post| %>
     <li>
     <h3><%=post.title%></h3>

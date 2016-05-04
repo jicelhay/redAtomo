@@ -10,11 +10,11 @@ body {
   margin: 0px;
   padding-left: 1px; // NO BORRAR!! Sirve para corregir la altura ... fking css
   height: 100%;
-  background: #B99C6B; /* For browsers that do not support gradients */
-  background: -webkit-linear-gradient(#855723, #B99C6B); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#855723, #B99C6B); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#855723, #B99C6B); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(#855723, #B99C6B); /* Standard syntax */
+  background: #E7E7E7; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#E7E7E7, #F8EEB1); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#E7E7E7, #F8EEB1); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#E7E7E7, #F8EEB1); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(#E7E7E7, #F8EEB1); /* Standard syntax */
 }
 
 // -------------------------- Propiedades Header --------------------------
@@ -22,16 +22,19 @@ body {
 header {
   width: 100%;
   height: 260px;
-  background-color: red;
+  background-color: #EC644B;
   position: absolute;
   top: 0;
   left: 0;
   z-index: -1;
 }
 header h1 {
-  text-align: center;
-  margin: 0;
+  font-family: 'Raleway', sans-serif;
+  text-align: left;
+  margin: 1%;
+  margin-left: 16%;
   font-size: 350%;
+  color: white;
 }
 
 // -------------------------- Propiedades Post-It's --------------------------
@@ -46,26 +49,32 @@ nav {
 
 nav .post-it {
   // Padding top y height deben sumar 50 para estar escondido
-  background-color: green;
+  background-color: #B2FC3A;
+  color: darken(#B2FC3A, 42);
   margin-right: 4%;
   padding: 15px 0px 0px 0px;
-  border-radius: 20px 20px 0px 0px;
+  //border-radius: 20px 20px 0px 0px;
   width: 20%;
   max-width: 200px;
   height: 35px;
   float: left;
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 0.5px;
 }
 nav .post-it.selected{
-  height: 115px;
+  height: 80px;
 }
 nav .post-it.b-bg{
-  background-color: lightblue;
+  background-color: #FFD6D4;
+  color: darken(#FFD6D4, 42);
 }
 nav .post-it.y-bg{
-  background-color: yellow;
+  background-color: #FBF937;
+  color: darken(#FBF937, 38);
 }
 nav .post-it.o-bg{
-  background-color: orange;
+  background-color: #51ADEE;
+  color: darken(#51ADEE, 42);
 }
 
 nav .post-it a, a:hover, a:visited {
@@ -76,7 +85,7 @@ nav .post-it a, a:hover, a:visited {
   margin: 0px;
   text-decoration: none;
   font-weight: bold;
-  color: black;
+  color: inherit;
 }
 
 
@@ -89,6 +98,7 @@ nav .post-it a, a:hover, a:visited {
   margin: 0 auto;
   margin-top: 150px;
   padding: 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 #paper .lines {
   border-left: 1px solid #ffaa9f;
@@ -104,7 +114,7 @@ nav .post-it a, a:hover, a:visited {
   font-size: 22px;
   padding: 0 !important;
   font-family: courier, monospace;
-  border: 1px solid #dedede;
+  //border: 1px solid #dedede;
 }
 .list li {
   list-style: none;
