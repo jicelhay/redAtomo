@@ -18,7 +18,7 @@ def update
 end
 
 def set_school_class
-@school_class = SchoolClass.find(params[:id])
+  @school_class = SchoolClass.find(params[:id])
 end
 
 def authenticate_teacher
@@ -31,4 +31,3 @@ def authenticate_teacher
 end
 end
 end
-

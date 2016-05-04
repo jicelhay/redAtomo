@@ -27,8 +27,5 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :parent_obligations
   has_many :school_classes
- 
-         
-         
-         
+     
 end

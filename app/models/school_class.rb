@@ -12,13 +12,13 @@
 #
 
 class SchoolClass < ActiveRecord::Base
-has_many :parent_obligations
-has_many :users, through: :parent_obligations
-has_many :posts
-belongs_to :school
-belongs_to :user
+  has_many :parent_obligations
+  has_many :users, through: :parent_obligations
+  has_many :posts
+  belongs_to :school
+  belongs_to :user
 
-alias_attribute :parents, :users
-alias_attribute :teacher, :user
+  alias_attribute :parents, :users
+  alias_attribute :teacher, :user
 
 end

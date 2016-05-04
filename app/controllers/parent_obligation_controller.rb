@@ -7,11 +7,11 @@ before_action :set_parent
   def destroy
     @parent_obligation.destroy
     respond_to do |format|
-    format.html { redirect_to url_for(controller: :home, action: :index)}
-    #format.json { render :show, status: :created, location: @post }
+      format.html { redirect_to url_for(controller: :home, action: :index)}
+      #format.json { render :show, status: :created, location: @post }
     end
   end
-  
+
   private
   # Use callbacks to share common setup or constraints between actions.
     def set_parent

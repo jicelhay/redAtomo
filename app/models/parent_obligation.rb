@@ -10,10 +10,10 @@
 #
 
 class ParentObligation < ActiveRecord::Base
-belongs_to :user
-belongs_to :school_class
+  belongs_to :user
+  belongs_to :school_class
 
-validates :user_id, presence: true, uniqueness: { scope: :school_class }
-validates :school_class_id, presence: true
+  validates :user_id, presence: true, uniqueness: { scope: :school_class }
+  validates :school_class_id, presence: true
 
 end
