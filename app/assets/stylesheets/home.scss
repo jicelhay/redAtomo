@@ -53,16 +53,15 @@ nav .post-it {
   color: darken(#B2FC3A, 42);
   margin-right: 4%;
   padding: 15px 0px 0px 0px;
-  //border-radius: 20px 20px 0px 0px;
   width: 20%;
   max-width: 200px;
-  height: 35px;
+  height: 50px;
   float: left;
   font-family: 'Raleway', sans-serif;
   letter-spacing: 0.5px;
 }
 nav .post-it.selected{
-  height: 80px;
+  height: 95px;
 }
 nav .post-it.b-bg{
   background-color: #FFD6D4;
