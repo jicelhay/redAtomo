@@ -4,16 +4,16 @@
 
 <nav>
   <div class="post-it selected">
-    <%= link_to('AVISOS',"#", method: :get)%>
+    <%= link_to('AVISOS',"#Avisos", remote: true)%>
   </div>
   <div class="post-it y-bg">
-    <%= link_to('MULTIMEDIA',"#", method: :get)%>
+    <%= link_to('MULTIMEDIA',"#Multimedia", remote: true)%>
   </div>
   <div class="post-it b-bg">
-    <%= link_to('COMUNICACIONES',"#", method: :get)%>
+    <%= link_to('COMUNICACIONES',"#Comunicaciones", remote: true)%>
   </div>
   <div class="post-it o-bg">
-    <%= link_to('CONFIGURACION',school_class_path(@school_class), method: :get)%>
+    <%= link_to('CONFIGURACION',school_class_path(@school_class), remote: true)%>
   </div>
 </nav>
 
@@ -25,13 +25,9 @@
   <ul class="list">
     <li>&nbsp</li>
     <li>&nbsp</li>
-    <%@school_class.posts.each do |post| %>
-    <li>
-    <h3><%=post.title%></h3>
-    <span>Escrito por <%=post.author.name%></span>
-    <p><%=post.body%></p>
-    </li>
-    <% end %>
+
+    <%= render 'content_all' %>
+
   </ul>
 </div>
 
