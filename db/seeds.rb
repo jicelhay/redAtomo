@@ -35,5 +35,7 @@ ParentObligation.create(user_id: pedro.id,school_class_id: example_class.id)
 ParentObligation.create(user_id: diego.id,school_class_id: example_class.id)                
              
 #Crear Avisos
-Post.create(title: 'Prueba 1', body: 'Lorem Ipsum', user_id: juan.id, school_class_id: example_class.id)
-Post.create(title: 'Prueba 2', body: 'Lorem Ipsum', user_id: juan.id, school_class_id: example_class.id)             
+Post.create(title: 'Paseo de curso', body: 'El paseo de curso se cancelará por mal tiempo. Agradezco su comprensión'+ 
+'y les aseguro que no fue una decisión facil. Que estén muy bien.', user_id: juan.id, school_class_id: example_class.id)
+Post.create(title: 'Aviso sobre notas de alumnos', body: 'Les comento a todos que las notas de la prueba de Matemáticas'+
+'del jueves pasado estuvieron pésimas. No aceptaré ninguna recorrección.', user_id: juan.id, school_class_id: example_class.id)             

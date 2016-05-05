@@ -2,7 +2,7 @@
   <h1>redATOMO</h1>
 </header>
 
-<nav>
+<div id="nav">
   <div class="post-it selected">
     <%= link_to('AVISOS',"#Avisos", remote: true)%>
   </div>
@@ -15,20 +15,12 @@
   <div class="post-it o-bg">
     <%= link_to('CONFIGURACION',school_class_path(@school_class), remote: true)%>
   </div>
-</nav>
+</div>
 
 <div id="paper">
 
-  <!-- Generación de líneas rojas del cuaderno -->
-  <!-- <div class="lines"></div> -->
-
-  <ul class="list">
-    <li>&nbsp</li>
-    <li>&nbsp</li>
-
     <%= render 'content_all' %>
 
-  </ul>
 </div>
 
 

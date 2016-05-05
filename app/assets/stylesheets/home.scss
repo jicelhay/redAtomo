@@ -39,7 +39,7 @@ header h1 {
 
 // -------------------------- Propiedades Post-It's --------------------------
 
-nav {
+#nav {
   position: absolute;
   top: 100px;
   left: 12%;
@@ -47,7 +47,7 @@ nav {
   margin-left: 4%;
 }
 
-nav .post-it {
+#nav .post-it {
   // Padding top y height deben sumar 50 para estar escondido
   background-color: #B2FC3A;
   color: darken(#B2FC3A, 42);
@@ -57,26 +57,26 @@ nav .post-it {
   max-width: 200px;
   height: 50px;
   float: left;
-  font-family: 'Raleway', sans-serif;
+  //font-family: 'Raleway', sans-serif;
   letter-spacing: 0.5px;
 }
-nav .post-it.selected{
+#nav .post-it.selected{
   height: 95px;
 }
-nav .post-it.b-bg{
+#nav .post-it.b-bg{
   background-color: #FFD6D4;
   color: darken(#FFD6D4, 42);
 }
-nav .post-it.y-bg{
+#nav .post-it.y-bg{
   background-color: #FBF937;
   color: darken(#FBF937, 38);
 }
-nav .post-it.o-bg{
+#nav .post-it.o-bg{
   background-color: #51ADEE;
   color: darken(#51ADEE, 42);
 }
 
-nav .post-it a, a:hover, a:visited {
+#nav .post-it a, a:hover, a:visited {
   font-size: 100%;
   display: block;
   text-align: center;
@@ -97,37 +97,10 @@ nav .post-it a, a:hover, a:visited {
   left: 12%;
   margin: 0 auto;
   margin-top: 150px;
-  padding: 0;
+  padding-top: 5%;
+  padding-left: 3%;
+  padding-bottom: 5px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
-#paper .lines {
-  border-left: 1px solid #ffaa9f;
-  border-right: 1px solid #ffaa9f;
-  width: 2px;
-  float: left;
-  min-height: 800px; //TODO: Fijar esto bien :/ javascript?
-  height: 100%;
-  margin-left: 40px;
-}
-.list {
-  color: #555;
-  font-size: 22px;
-  padding: 0 !important;
-  font-family: courier, monospace;
-  //border: 1px solid #dedede;
-}
-.list li {
-  list-style: none;
-  border-bottom: 1px dotted #ccc;
-  text-indent: 25px;
-  height: auto;
-  padding: 10px;
-  text-transform: capitalize;
-}
-.list li:hover {
-  background-color: #eaeaea;
-  -webkit-transition: all 0.2s;
-  -moz-transition:    all 0.2s;
-  -ms-transition:     all 0.2s;
-  -o-transition:      all 0.2s;
-}
+
+
