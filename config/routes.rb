@@ -2,14 +2,23 @@ Rails.application.routes.draw do
 
   root 'home#index'
 
+  # Rutas a métodos javascript!
+  get "/fetch_avisos_posts" => 'posts#avisos_from_school_class', as: 'fetch_avisos_posts'
+  get "/fetch_multimedia_posts" => 'posts#multimedia_from_school_class', as: 'fetch_multimedia_posts'
+  get "/fetch_comunicaciones_posts" => 'posts#comunicaciones_from_school_class', as: 'fetch_comunicaciones_posts'
+  get "/fetch_configuracion" => 'home#configuracion', as: 'fetch_configuracion'
+
+
+
+
   devise_for :users
 
   resources :school_classes do
     resources :posts
     resources :parent_obligation, only: [:create,:destroy]
   end
-   
-  
+
+
 end
 
 # == Route Map

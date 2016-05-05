@@ -1,7 +1,41 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authorize_post!, only: [:new,:create]
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
+
+  # --------------------------Clasificacion de posts----------------------------
+
+  def avisos_from_school_class
+    @posts = (SchoolClass.find(params[:school_class_id])).posts
+    #TODO: activar filtro:
+    #@selected = @posts.select { |post| post.type == 'aviso' }
+
+    respond_to do |format|
+        format.js
+    end
+  end
+
+  def multimedia_from_school_class
+    @posts = (SchoolClass.find(params[:school_class_id])).posts
+    #TODO: activar filtro:
+    #@selected = @posts.select { |post| post.type == 'multimedia' }
+
+    respond_to do |format|
+        format.js
+    end
+  end
+
+  def comunicaciones_from_school_class
+    @posts = (SchoolClass.find(params[:school_class_id])).posts
+    #TODO: activar filtro:
+    #@selected = @posts.select { |post| post.type == 'comunicaciones' }
+
+    respond_to do |format|
+        format.js
+    end
+  end
+
+  # ----------------------------------CRUD--------------------------------------
 
   # GET /posts
   # GET /posts.json
@@ -27,7 +61,7 @@ class PostsController < ApplicationController
   # POST /posts.json
   def create
     @post = Post.new(title: params[:post][:title], body: params[:post][:body], school_class_id: params[:school_class_id], user_id: current_user.id)
-    
+
     respond_to do |format|
       if @post.save
         puts @post.title
@@ -74,7 +108,7 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:title,:body,:school_class_id)
     end
-    
+
     def authorize_post!
     #setear curso y ver si usuario logeado coincide con profesor del curso
       @school_class = SchoolClass.find(params[:school_class_id])
@@ -84,6 +118,5 @@ class PostsController < ApplicationController
       end
     end
     end
-    
-end
 
+end

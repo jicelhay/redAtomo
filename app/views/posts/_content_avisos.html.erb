@@ -1,10 +1,15 @@
-<%@school_class.posts.each do |post| %>
-  <% #if post.type == (?) %>
+<!-- Generación de líneas rojas del cuaderno -->
+<!-- <div class="lines"></div> -->
+<ul class="list">
+  <li>&nbsp</li>
+  <li>&nbsp</li>
+  <li>avisos</li>
+  <% @posts.each do |post| %>
     <li>
     <h3><%=post.title%></h3>
     <span>Escrito por <%=post.author.name%></span>
     <p><%=post.body%></p>
     <td><%= link_to "Comentar", "#", id: "test5", class: "btn btn-default" %></td>
     </li>
-  <% #end %>
-<% end %>
+  <% end %>
+</ul>

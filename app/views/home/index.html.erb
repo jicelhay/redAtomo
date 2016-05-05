@@ -4,23 +4,21 @@
 
 <div id="nav">
   <div class="post-it selected">
-    <%= link_to('AVISOS',"#Avisos", remote: true)%>
+    <%= link_to('AVISOS',fetch_avisos_posts_path(school_class_id: @school_class.id), remote: true)%>
   </div>
   <div class="post-it y-bg">
-    <%= link_to('MULTIMEDIA',"#Multimedia", remote: true)%>
+    <%= link_to('MULTIMEDIA', fetch_multimedia_posts_path(school_class_id: @school_class.id), remote: true)%>
   </div>
   <div class="post-it b-bg">
-    <%= link_to('COMUNICACIONES',"#Comunicaciones", remote: true)%>
+    <%= link_to('COMUNICACIONES',fetch_comunicaciones_posts_path(school_class_id: @school_class.id), remote: true)%>
   </div>
   <div class="post-it o-bg">
-    <%= link_to('CONFIGURACION',school_class_path(@school_class), remote: true)%>
+    <%= link_to('CONFIGURACION',fetch_configuracion_path(school_class_id: @school_class.id), remote: true)%>
   </div>
 </div>
 
 <div id="paper">
-
-    <%= render 'content_all' %>
-
+  <%= render partial: 'posts/content_avisos' %>
 </div>
 
 
