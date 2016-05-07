@@ -38,4 +38,7 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+  
+  # Paperclip necesita la ruta de ImageMagick para funcionar
+  Paperclip.options[:command_path] = "/usr/bin/convert"
 end

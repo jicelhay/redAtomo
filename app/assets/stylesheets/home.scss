@@ -57,7 +57,7 @@ header h1 {
   max-width: 200px;
   height: 50px;
   float: left;
-  //font-family: 'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
   letter-spacing: 0.5px;
 }
 #nav .post-it.selected{
@@ -103,4 +103,19 @@ header h1 {
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
 
+#paper .user-thumbnail{
+  border-radius: 50px;
+}
+
+#paper .card-title{
+  margin-left: 10%;
+  margin-right: 5%;
+  color: #424242 ;
+  font-family: 'Raleway', sans-serif;
+}
+
+#paper .post-date{
+  font-size: 110%;
+  color: #616161;
+}
 

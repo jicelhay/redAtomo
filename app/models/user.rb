@@ -17,6 +17,10 @@
 #  updated_at             :datetime         not null
 #  name                   :string
 #  teacher                :boolean
+#  image_file_name        :string
+#  image_content_type     :string
+#  image_file_size        :integer
+#  image_updated_at       :datetime
 #
 
 class User < ActiveRecord::Base
@@ -24,8 +28,13 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+         
   has_many :posts
   has_many :parent_obligations
   has_many :school_classes
+  has_attached_file :image, styles: { thumb: ["64x64#", :jpg] }, default_url: ":style/rsz_fat_guy.jpg"
+  
+  validates_attachment :image,
+                     content_type: { content_type: ["image/jpeg", "image/png"] }
      
 end
