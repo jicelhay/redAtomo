@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # Autentificación de usuarios
 gem 'devise'
 
-# Iconos
+# Iconos EXAMPLES: http://fortawesome.github.io/Font-Awesome/examples/
 gem 'font-awesome-rails'
 
 # Bootstrap (Cool Easy Styling, thank you twitter!)
