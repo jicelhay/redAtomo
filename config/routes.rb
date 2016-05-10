@@ -7,7 +7,7 @@ Rails.application.routes.draw do
   get "/fetch_multimedia_posts" => 'posts#multimedia_from_school_class', as: 'fetch_multimedia_posts'
   get "/fetch_comunicaciones_posts" => 'posts#comunicaciones_from_school_class', as: 'fetch_comunicaciones_posts'
   get "/fetch_configuracion" => 'home#configuracion', as: 'fetch_configuracion'
-  post "/" => "home#index", as: "root"
+  post "/" => "home#index", as: "lms_init"
 
 
 
