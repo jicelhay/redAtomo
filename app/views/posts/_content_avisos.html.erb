@@ -1,26 +1,37 @@
-
 <ul class="list">
-  <% @posts.each do |post| %>
-  <div class="row post-card">
-          <div class="col s12 m11">
-        
-            <div class="card grey lighten-2">
-              <div class="card-content white-text activator">       
-             <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail')%>
-                <span class="card-title"><%=post.title%></span>   
-                <span class="post-date"><%=post.created_at.strftime("%d/%m/%Y")%></span>        
-              </div>
-              
-               <div class="card-reveal">
-      <span class="card-title grey-text text-darken-4"> <i class="material-icons right">close</i></span>
-      <p><%=post.body%></p>
-      <div class="card-action">
-        <a href="www.arreglar.com">EDITAR</a>
-      </div>
+
+  <!-- Modal Trigger -->
+  <a class="waves-effect waves-light btn modal-trigger" href="#add-post-modal">Modal</a>
+  <!-- Modal Structure -->
+  <div id="add-post-modal" class="modal">
+    <div class="modal-content">
+      <h4>Modal Header</h4>
+      <p>A bunch of text</p>
     </div>
-              
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <% @posts.each do |post| %>
+    <div class="row post-card">
+      <div class="col s12 m11">
+        <div class="card grey lighten-2">
+          <div class="card-content white-text activator">
+            <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail')%>
+            <span class="card-title"><%=post.title%></span>
+            <span class="post-date"><%=post.created_at.strftime("%d/%m/%Y")%></span>
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4"> <i class="material-icons right">close</i></span>
+            <p><%=post.body%></p>
+            <div class="card-action">
+              <a href="www.arreglar.com">EDITAR</a>
             </div>
           </div>
         </div>
+      </div>
+    </div>
   <% end %>
+
 </ul>
