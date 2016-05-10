@@ -1,43 +1,74 @@
-<ul class="list">
-  <div id="add-post-trigger" style="float: right; margin-right: 50px">
-    <!-- Modal Trigger -->
-    <a class="btn modal-trigger" href="#add-post-modal" style="padding-left: 30px;">
-      <i class="fa fa-pencil fa-5x" aria-hidden="true"></i>
-    </a>
-    <a class="modal-trigger" href="#add-post-modal" style="padding-left: 30px;">
-      <i class="fa fa-pencil fa-5x" aria-hidden="true"></i>
-    </a>
+<!-- Modal Triggers -->
+  <div style="position: relative; float: right; margin-right: 10%; margin-top: 25px">
+    <div class="fixed-action-btn horizontal" style="position: absolute; display: inline-block;
+  top: 50%;
+  margin-top: -65px;">
+      <a class="btn-floating btn-large blue modal-trigger" href="#add-post-modal">
+        <i class="large material-icons">mode_edit</i>
+      </a>
+      <ul>
+        <li><a style="transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;" class="btn-floating yellow darken-1 modal-trigger" href="#add-comm-modal">
+          <i class="material-icons">format_quote</i></a>
+        </li>
+        <li><a style="transform: scaleY(0.4) scaleX(0.4) translateY(0px) translateX(40px); opacity: 0;" class="btn-floating green modal-trigger" href="#add-media-modal">
+          <i class="material-icons">publish</i></a>
+        </li>
+      </ul>
+    </div>
   </div>
-  <!-- Modal Structure -->
+
+<!-- Modal Structure -->
+  <!-- Aviso -->
   <div id="add-post-modal" class="modal">
     <div class="modal-content">
-      <h4>Modal Header</h4>
-      <p>A bunch of text</p>
+      <h4>Agregar Aviso</h4>
+      <p>Configurar form aquí...</p>
     </div>
     <div class="modal-footer">
       <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
 
-  <% @posts.each do |post| %>
-    <div class="row post-card">
-      <div class="col s12 m11">
-        <div class="card grey lighten-2">
-          <div class="card-content white-text activator">
-            <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail')%>
-            <span class="card-title"><%=post.title%></span>
-            <span class="post-date"><%=post.created_at.strftime("%d/%m/%Y")%></span>
-          </div>
-          <div class="card-reveal">
-            <span class="card-title grey-text text-darken-4"> <i class="material-icons right">close</i></span>
-            <p><%=post.body%></p>
-            <div class="card-action">
-              <a href="www.arreglar.com">EDITAR</a>
-            </div>
+  <!-- Multimedia -->
+  <div id="add-media-modal" class="modal">
+    <div class="modal-content">
+      <h4>Agregar Multimedia</h4>
+      <p>Configurar form aquí...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+  <!-- Comunicación -->
+  <div id="add-comm-modal" class="modal">
+    <div class="modal-content">
+      <h4>Agregar Comunicación</h4>
+      <p>Configurar form aquí...</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+    </div>
+  </div>
+
+<!--  Contenido principal -->
+<% @posts.each do |post| %>
+  <div class="row post-card">
+    <div class="col s12 m11">
+      <div class="card grey lighten-2">
+        <div class="card-content white-text activator">
+          <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail')%>
+          <span class="card-title"><%=post.title%></span>
+          <span class="post-date"><%=post.created_at.strftime("%d/%m/%Y")%></span>
+        </div>
+        <div class="card-reveal">
+          <span class="card-title grey-text text-darken-4"> <i class="material-icons right">close</i></span>
+          <p><%=post.body%></p>
+          <div class="card-action">
+            <a href="www.arreglar.com">EDITAR</a>
           </div>
         </div>
       </div>
     </div>
-  <% end %>
-
-</ul>
+  </div>
+<% end %>
