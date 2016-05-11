@@ -27,7 +27,10 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 
 # Oauth 1.0
-gem 'oauth', '~> 0.5.1'
+#gem 'oauth', '~> 0.5.1'
+
+#LTI library
+gem 'ims-lti'
 
 # Iconos
 gem 'font-awesome-rails'
