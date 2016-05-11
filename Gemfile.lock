@@ -218,6 +218,7 @@ DEPENDENCIES
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
+  oauth
   paperclip (~> 4.2)
   pg (~> 0.15)
   puma

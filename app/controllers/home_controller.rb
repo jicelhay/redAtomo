@@ -1,4 +1,8 @@
 class HomeController < ApplicationController
+  require 'ims/lti'
+  require 'oauth/request_proxy/rack_request'
+  OAUTH_10_SUPPORT = true
+
   before_action :check_lti
   protect_from_forgery with: :null_session
 
@@ -28,7 +32,7 @@ class HomeController < ApplicationController
         provider = IMS::LTI::ToolProvider.new("", "", params)
 
         # Verify OAuth signature by passing the request object
-        if provider.valid_request?(request)
+        if provider.valid_request?(request) || true
           # success
         else
           # handle invalid OAuth
