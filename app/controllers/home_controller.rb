@@ -4,6 +4,8 @@ class HomeController < ApplicationController
     sign_in(@user)
     @school_class = current_user.school_classes.first
     @posts = @school_class.posts
+    # En caso de crear un nuevo post:
+      @post = Post.new
     #TODO: activar filtro:
     #@selected = @posts.select { |post| post.type == 'multimedia' }
   end

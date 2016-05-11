@@ -21,11 +21,8 @@
   <!-- Aviso -->
   <div id="add-post-modal" class="modal">
     <div class="modal-content">
-      <h4>Agregar Aviso</h4>
-      <p>Configurar form aquí...</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
+      <h2>Agregar Aviso</h2>
+      <p><%= render partial: 'posts/form', school_class: @school_class, post: @post %></p>
     </div>
   </div>
 
@@ -34,9 +31,6 @@
     <div class="modal-content">
       <h4>Agregar Multimedia</h4>
       <p>Configurar form aquí...</p>
-    </div>
-    <div class="modal-footer">
-      <a href="#!" class=" modal-action modal-close waves-effect waves-green btn-flat">Agree</a>
     </div>
   </div>
 
