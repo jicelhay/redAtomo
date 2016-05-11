@@ -40,4 +40,4 @@ Post.create(title: 'Paseo de curso', body: 'El paseo de curso se cancelará por 
 Post.create(title: 'Aviso sobre notas de alumnos', body: 'Les comento a todos que las notas de la prueba de Matemáticas'+
 'del jueves pasado estuvieron pésimas. No aceptaré ninguna recorrección.', user_id: juan.id, school_class_id: example_class.id)
 
-p "Información cargada. Posts: #{Post.count} User: #{User.count} School: #{School.count}"
+p "Información cargada. Posts actuales: #{Post.count} Users actuales: #{User.count} Schools actuales: #{School.count}"
