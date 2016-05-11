@@ -1,18 +1,20 @@
 <%= form_for @school_class do |f| %>
- 
-   
+
+
   <div class="form-group">
-    <%= f.label :name, :class => 'control-label col-lg-2' %>
+    <%= f.label :name, "Nombre:", class: 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :name, :class => 'form-control', required: true %>
+      <%= f.text_field :name, class: 'form-control', required: true %>
     </div>
-     <%= f.label :securityCode, :class => 'control-label col-lg-2' %>
+     <%= f.label :securityCode, "Código Secreto:", class: 'control-label col-lg-2' %>
     <div class="col-lg-10">
-      <%= f.text_field :securityCode, :class => 'form-control', required: true %> 
+      <%= f.text_field :securityCode, class: 'form-control', required: true %>
     </div>
   </div>
 
   <div class="actions">
-    <%= f.submit %>
+    <%= button_tag( class: "waves-effect waves-light btn") do %>
+      Actualizar datos del curso
+    <% end %>
   </div>
 <% end %>

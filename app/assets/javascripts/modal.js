@@ -11,7 +11,7 @@ $(document).on('page:change ajax:success', function() {
       out_duration: 200, // Transition out duration
       //ready: function() { alert('Ready'); }, // Callback for Modal open
       complete: function() {
-        Materialize.toast('¡Contenido descartado!', 1500) // 4000 is the duration of the toast
+        Materialize.toast('¡Contenido descartado!', 1500) // 1500 is the duration of the toast
       } // Callback for Modal close
     }
   );

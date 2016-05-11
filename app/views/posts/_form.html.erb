@@ -1,5 +1,4 @@
 <%= form_for [@school_class, @post] do |f| %>
-
   <div class="form-group">
     <div class="">
       <%= f.text_field :title, placeholder: "Título", class: 'form-control', required: true %>
@@ -8,8 +7,9 @@
       <%= f.text_area :body, placeholder: "Contenido", class: 'form-control', required: true, size: '50x10' %>
     </div>
   </div>
-
-  <%= button_tag( class: "waves-effect waves-light btn") do %>
-    Agregar Aviso <i class="icon-share-alt icon-white"></i>
-  <% end %>
+  <div class="actions">
+    <%= button_tag( class: "waves-effect waves-light btn") do %>
+      Agregar Aviso
+    <% end %>
+  </div>
 <% end %>
