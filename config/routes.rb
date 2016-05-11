@@ -9,8 +9,6 @@ Rails.application.routes.draw do
   get "/fetch_configuracion" => 'home#configuracion', as: 'fetch_configuracion'
 
 
-
-
   devise_for :users
 
   resources :school_classes do
