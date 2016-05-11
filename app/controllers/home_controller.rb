@@ -29,7 +29,7 @@ class HomeController < ApplicationController
     def check_lti
       if request.method == "POST"
         # Initialize TP object with OAuth creds and post parameters
-        provider = IMS::LTI::ToolProvider.new("http://redatomo-env.tqtp5ycfce.us-east-1.elasticbeanstalk.com/", "", params)
+        provider = IMS::LTI::ToolProvider.new("desafio.3.puc.sandoval", "desafio.3.puc.sandoval", params)
 
         # Verify OAuth signature by passing the request object
         if provider.valid_request?(request) || true
