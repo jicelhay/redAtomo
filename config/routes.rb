@@ -1,5 +1,16 @@
 Rails.application.routes.draw do
 
+
+  # Rutas API
+  namespace :api, defaults: { format: :json } do
+    resources :users do
+      collection do
+        post 'login'
+        post 'sign_up'
+      end
+    end
+  end
+
   root 'home#index'
 
   # Rutas a métodos javascript!

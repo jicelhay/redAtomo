@@ -25,6 +25,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 # Autentificación de usuarios
 gem 'devise'
+gem 'simple_token_authentication', '~> 1.0'
 
 # Iconos EXAMPLES: http://fortawesome.github.io/Font-Awesome/examples/
 gem 'font-awesome-rails'
