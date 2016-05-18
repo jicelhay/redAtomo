@@ -21,4 +21,6 @@ class SchoolClass < ActiveRecord::Base
   alias_attribute :parents, :users
   alias_attribute :teacher, :user
 
+  validates_uniqueness_of :securityCode
+
 end

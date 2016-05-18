@@ -1,11 +1,8 @@
 class Api::APIController < ActionController::Base
   protect_from_forgery with: :null_session
-  skip_before_action :verify_authenticity_token
 
-  before_action :set_default_response_format, :set_pagination
-  before_filter :authenticate_user_from_token!
+  before_action :set_default_response_format
 
-  acts_as_token_authentication_handler_for User
 
 
   def not_found
@@ -22,17 +19,9 @@ class Api::APIController < ActionController::Base
     request.format = :json
     end
 
-  # https://gist.github.com/josevalim/fb706b1e933ef01e4fb6
-  def authenticate_user_from_token!
-    user_id	= params[:user_id].presence
-    user	= user_id && User.find(user_id)
-
-    # Notice how we use Devise.secure_compare to compare the token
-    # in the database with the token given in the params, mitigating
-    # timing attacks.
-    if user && Devise.secure_compare(user.authentication_token, params[:user_token])
-      sign_in user, store: false
-  end
+  # https://github.com/gonzalo-bulnes/simple_token_authentication/issues/154
+  def require_authentication!
+      throw(:warden, scope: :user) unless current_user.presence
     end
 
   def set_pagination

@@ -1,13 +1,11 @@
 class Api::UsersController < Api::APIController
 
   def login
-    user_email  = params[:user_email].presence
-    @user = User.where(email: user_email).take if user_email
-    # Notice how we use Devise.secure_compare to compare the token
-    # in the database with the token given in the params, mitigating
-    # timing attacks.
-    if @user
-      sign_in @user, store: true
+    user_email  = params[:user][:email].presence
+    @user = User.where(email: params[:user][:email]).take if user_email
+    validity = @user.valid_password?(params[:user][:password])
+    if validity
+      sign_in @user, store: false
     else
       bad_parameters
       return
@@ -19,7 +17,7 @@ class Api::UsersController < Api::APIController
     @user = User.new(user_params)
     @user.teacher = false
     if @user.save
-      sign_in @user, store: true
+      sign_in @user, store: false
       render :show, status: :ok
     else
       render json: @user.errors, status: :unprocessable_entity
