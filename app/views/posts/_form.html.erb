@@ -1,18 +1,15 @@
 <%= form_for [@school_class, @post] do |f| %>
-
-
   <div class="form-group">
-    <%= f.label :title, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :title, :class => 'form-control', required: true %>
+    <div class="">
+      <%= f.text_field :title, placeholder: "Título", class: 'form-control', required: true %>
     </div>
-     <%= f.label :body, :class => 'control-label col-lg-2' %>
-    <div class="col-lg-10">
-      <%= f.text_field :body, :class => 'form-control', required: true %>
+    <div class="">
+      <%= f.text_area :body, placeholder: "Contenido", class: 'form-control', required: true, size: '50x10' %>
     </div>
   </div>
-
   <div class="actions">
-    <%= f.submit %>
+    <%= button_tag( class: "waves-effect waves-light btn") do %>
+      Agregar Aviso
+    <% end %>
   </div>
 <% end %>

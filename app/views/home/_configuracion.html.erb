@@ -1,8 +1,17 @@
-<!-- Generación de líneas rojas del cuaderno -->
-<!-- <div class="lines"></div> -->
-<ul class="list">
-  <li>&nbsp</li>
-  <li>&nbsp</li>
-  <li>configuracion</li>
-  <li>Colocar opciones acá...</li>
-</ul>
+<!--  Contenido principal -->
+  <div class="configuracion">
+    <h1> Configuración de <%= @school_class.name %> </h1>
+
+    <%= render partial: 'school_classes/form' %>
+
+    <h2>Administrar apoderados:</h2>
+    <ul>
+    <% @school_class.parents.each do |parent|%>
+        <li>
+        <%=parent.name%>
+        <%= link_to(fa_icon("trash-o"), school_class_parent_obligation_path(@school_class.id, parent.id), method: :delete)%>
+        </li>
+    <%end%>
+    </ul>
+
+  </div>

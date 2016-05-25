@@ -76,7 +76,7 @@ header h1 {
   color: darken(#51ADEE, 42);
 }
 
-#nav .post-it a, a:hover, a:visited {
+#nav .post-it a, #nav .post-it a:hover, #nav .post-it a:visited {
   font-size: 100%;
   display: block;
   text-align: center;
@@ -97,8 +97,9 @@ header h1 {
   left: 12%;
   margin: 0 auto;
   margin-top: 150px;
-  padding-top: 5%;
+  padding-top: 60px;
   padding-left: 3%;
+  padding-right: 3%;
   padding-bottom: 5px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.3);
 }
@@ -118,4 +119,3 @@ header h1 {
   font-size: 110%;
   color: #616161;
 }
-

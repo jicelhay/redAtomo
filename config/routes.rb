@@ -10,8 +10,6 @@ Rails.application.routes.draw do
 
   post "/" => "home#index", as: "lms_init"
 
-
-
   devise_for :users
 
   resources :school_classes do

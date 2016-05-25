@@ -32,7 +32,7 @@ gem 'oauth'
 #LTI library
 gem 'ims-lti'
 
-# Iconos
+# Iconos EXAMPLES: http://fortawesome.github.io/Font-Awesome/examples/
 gem 'font-awesome-rails'
 
 # Bootstrap (Cool Easy Styling, thank you twitter!)

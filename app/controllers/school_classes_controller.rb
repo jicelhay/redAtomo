@@ -3,6 +3,7 @@ before_filter :authenticate_user!
 before_action :authenticate_teacher
 
 def show
+  redirect_to url_for(controller: :home, action: :index) and return
 end
 
 def update
