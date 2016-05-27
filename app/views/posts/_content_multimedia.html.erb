@@ -21,15 +21,14 @@
   <!-- Aviso -->
   <div id="add-post-modal" class="modal">
     <div class="modal-content">
-      <p><%= render partial: 'posts/form', school_class: @school_class, post: @post %></p>
+      <%= render partial: 'posts/form', school_class: @school_class, post: @post %>
     </div>
   </div>
 
   <!-- Multimedia -->
   <div id="add-media-modal" class="modal">
     <div class="modal-content">
-      <h4>Agregar Multimedia</h4>
-      <p>Configurar form aquí...</p>
+      <%= render partial: 'posts/form_for_multimedia', school_class: @school_class, multimedia_post: @multimedia_post %>
     </div>
   </div>
 
@@ -41,9 +40,16 @@
     </div>
   </div>
 
-  <!--  Contenido principal -->
-    <ul class="list">
-      <li>&nbsp</li>
-      <li>&nbsp</li>
-      <li>En este hermoso partial cargado con AJAX irá el contenido MULTIMEDIA...</li>
-    </ul>
+  <div id="multimedia_cards">
+    <!--  Contenido principal -->
+    <% @multimedia_posts.each do |m_post| %>
+      <div class="card medium">
+        <div class="custom_card-image">
+          <img class="materialboxed" src="<%= m_post.img.url %>">
+        </div>
+        <div class="custom_card-content">
+          <span class="card-title grey-text text-darken-4"><%= m_post.title %></span>
+        </div>
+      </div>
+    <% end %>
+  </div>

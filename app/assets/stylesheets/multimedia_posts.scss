@@ -1,0 +1,36 @@
+// Place all the styles related to the MultimediaPosts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+#multimedia_post_img {
+  padding-bottom: 40px;
+}
+
+#multimedia_cards {
+  padding-top: 25px;
+  padding-right: 40px;
+}
+
+#multimedia_cards .custom_card-image {
+  height: 100%;
+  max-width: 60%;
+  float: left;
+}
+.materialboxed, .material-placeholder, #multimedia_cards img {
+  max-height: 400px;
+  max-width: 100%;
+}
+#multimedia_cards .materialboxed.initialized.active {
+  max-width: none;
+  max-height: none;
+}
+
+#multimedia_cards .custom_card-content {
+  height: 100%;
+  max-width: 40%;
+  float: left;
+}
+
+#multimedia_cards span {
+  font-size: 400%;
+}

@@ -5,18 +5,15 @@ class HomeController < ApplicationController
     @school_class = current_user.school_classes.first
     @posts = @school_class.posts
     # En caso de crear un nuevo post:
-      @post = Post.new
-    #TODO: activar filtro:
-    #@selected = @posts.select { |post| post.type == 'multimedia' }
+    @post = Post.new
+    @multimedia_post = MultimediaPost.new
   end
 
   def configuracion
     @school_class = SchoolClass.find(params[:school_class_id])
-    #TODO: activar filtro:
-    #@selected = @posts.select { |post| post.type == 'aviso' }
 
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 end

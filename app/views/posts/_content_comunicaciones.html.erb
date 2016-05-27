@@ -21,15 +21,14 @@
   <!-- Aviso -->
   <div id="add-post-modal" class="modal">
     <div class="modal-content">
-      <p><%= render partial: 'posts/form', school_class: @school_class, post: @post %></p>
+      <%= render partial: 'posts/form', school_class: @school_class, post: @post %>
     </div>
   </div>
 
   <!-- Multimedia -->
   <div id="add-media-modal" class="modal">
     <div class="modal-content">
-      <h4>Agregar Multimedia</h4>
-      <p>Configurar form aquí...</p>
+      <%= render partial: 'posts/form_for_multimedia', school_class: @school_class, multimedia_post: @multimedia_post %>
     </div>
   </div>
 

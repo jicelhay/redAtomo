@@ -1,0 +1,21 @@
+<%= form_for(@multimedia_post) do |f| %>
+  <% if @multimedia_post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@multimedia_post.errors.count, "error") %> prohibited this multimedia_post from being saved:</h2>
+
+      <ul>
+      <% @multimedia_post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

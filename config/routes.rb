@@ -1,22 +1,23 @@
 Rails.application.routes.draw do
-
   root 'home#index'
 
-  # Rutas a métodos javascript!
-  get "/fetch_avisos_posts" => 'posts#avisos_from_school_class', as: 'fetch_avisos_posts'
-  get "/fetch_multimedia_posts" => 'posts#multimedia_from_school_class', as: 'fetch_multimedia_posts'
-  get "/fetch_comunicaciones_posts" => 'posts#comunicaciones_from_school_class', as: 'fetch_comunicaciones_posts'
-  get "/fetch_configuracion" => 'home#configuracion', as: 'fetch_configuracion'
-
+  # Rutas a metodos javascript!
+  get '/fetch_avisos_posts' => 'posts#avisos_from_school_class',
+      as: 'fetch_avisos_posts'
+  get '/fetch_multimedia_posts' => 'posts#multimedia_from_school_class',
+      as: 'fetch_multimedia_posts'
+  get '/fetch_comunicaciones_posts' => 'posts#comunicaciones_from_school_class',
+      as: 'fetch_comunicaciones_posts'
+  get '/fetch_configuracion' => 'home#configuracion',
+      as: 'fetch_configuracion'
 
   devise_for :users
 
   resources :school_classes do
     resources :posts
-    resources :parent_obligation, only: [:create,:destroy]
+    resources :multimedia_posts
+    resources :parent_obligation, only: [:create, :destroy]
   end
-
-
 end
 
 # == Route Map
@@ -55,52 +56,3 @@ end
 #                          PUT    /school_classes/:id(.:format)                             school_classes#update
 #                          DELETE /school_classes/:id(.:format)                             school_classes#destroy
 #
-
-# Example of regular route:
-#   get 'products/:id' => 'catalog#view'
-
-# Example of named route that can be invoked with purchase_url(id: product.id)
-#   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
-
-# Example resource route (maps HTTP verbs to controller actions automatically):
-#   resources :products
-
-# Example resource route with options:
-#   resources :products do
-#     member do
-#       get 'short'
-#       post 'toggle'
-#     end
-#
-#     collection do
-#       get 'sold'
-#     end
-#   end
-
-# Example resource route with sub-resources:
-#   resources :products do
-#     resources :comments, :sales
-#     resource :seller
-#   end
-
-# Example resource route with more complex sub-resources:
-#   resources :products do
-#     resources :comments
-#     resources :sales do
-#       get 'recent', on: :collection
-#     end
-#   end
-
-# Example resource route with concerns:
-#   concern :toggleable do
-#     post 'toggle'
-#   end
-#   resources :posts, concerns: :toggleable
-#   resources :photos, concerns: :toggleable
-
-# Example resource route within a namespace:
-#   namespace :admin do
-#     # Directs /admin/products/* to Admin::ProductsController
-#     # (app/controllers/admin/products_controller.rb)
-#     resources :products
-#   end

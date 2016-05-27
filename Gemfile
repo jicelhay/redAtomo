@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use postgresql as the database for Active Record
@@ -10,7 +9,7 @@ gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
 # Use CoffeeScript for .coffee assets and views
-#gem 'coffee-rails', '~> 4.1.0' # Let's use plain JS instead
+# gem 'coffee-rails', '~> 4.1.0' # Let's use plain JS instead
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
 
@@ -23,7 +22,7 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# Autentificación de usuarios
+# Autentificacion de usuarios
 gem 'devise'
 
 # Iconos EXAMPLES: http://fortawesome.github.io/Font-Awesome/examples/
@@ -37,6 +36,9 @@ gem 'materialize-sass'
 
 # Manejo de fotos
 gem 'paperclip', '~> 4.2'
+
+# Para facilitar la creacion de forms (Es opcional su uso)
+gem 'simple_form'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Multimedia Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @multimedia_posts.each do |multimedia_post| %>
+      <tr>
+        <td><%= multimedia_post.title %></td>
+        <td><%= link_to 'Show', multimedia_post %></td>
+        <td><%= link_to 'Edit', edit_multimedia_post_path(multimedia_post) %></td>
+        <td><%= link_to 'Destroy', multimedia_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Multimedia post', new_multimedia_post_path %>

@@ -1,49 +1,54 @@
+# Controller for calls to avisos, multimedia and comunicaciones
+# (Filtering and rendering the right partial views)
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :authorize_post!, only: [:new,:create]
-  #before_filter :authenticate_user!
+  before_action :authorize_post!, only: [:new, :create]
+  # before_filter :authenticate_user!
 
   # ----------------------Clasificacion de posts (JS)---------------------------
 
   def avisos_from_school_class
     @user = current_user
-    @posts = (SchoolClass.find(params[:school_class_id])).posts
-    @school_class = current_user.school_classes.first
+    @school_class = SchoolClass.find(params[:school_class_id])
     # En caso de crear un nuevo post:
-      @post = Post.new
-    #TODO: activar filtro:
-    #@selected = @posts.select { |post| post.type == 'aviso' }
+    @post = Post.new
+    @multimedia_post = MultimediaPost.new
+
+    # Contenido
+    @posts = @school_class.posts
 
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 
   def multimedia_from_school_class
     @user = current_user
-    @posts = (SchoolClass.find(params[:school_class_id])).posts
-    @school_class = current_user.school_classes.first
+    @school_class = SchoolClass.find(params[:school_class_id])
     # En caso de crear un nuevo post:
-      @post = Post.new
-    #TODO: activar filtro:
-    #@selected = @posts.select { |post| post.type == 'multimedia' }
+    @post = Post.new
+    @multimedia_post = MultimediaPost.new
+
+    # Contenido
+    @multimedia_posts = MultimediaPost.all # TODO: @school_class.multimedia_posts
 
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 
   def comunicaciones_from_school_class
     @user = current_user
-    @posts = (SchoolClass.find(params[:school_class_id])).posts
-    @school_class = current_user.school_classes.first
+    @school_class = SchoolClass.find(params[:school_class_id])
+    @posts = @school_class.posts
     # En caso de crear un nuevo post:
-      @post = Post.new
-    #TODO: activar filtro:
-    #@selected = @posts.select { |post| post.type == 'comunicaciones' }
+    @post = Post.new
+    @multimedia_post = MultimediaPost.new
+
+    # Contenido
 
     respond_to do |format|
-        format.js
+      format.js
     end
   end
 
@@ -72,12 +77,14 @@ class PostsController < ApplicationController
   # POST /posts
   # POST /posts.json
   def create
-    @post = Post.new(title: params[:post][:title], body: params[:post][:body], school_class_id: params[:school_class_id], user_id: current_user.id)
+    @post = Post.new(title: params[:post][:title], body: params[:post][:body],
+                     school_class_id: params[:school_class_id],
+                     user_id: current_user.id)
 
     respond_to do |format|
       if @post.save
         puts @post.title
-        format.html { redirect_to url_for(controller: :home, action: :index)}
+        format.html { redirect_to url_for(controller: :home, action: :index) }
         format.json { render :show, status: :created, location: @post }
       else
         format.html { redirect_to url_for(controller: :home, action: :index) }
@@ -111,24 +118,24 @@ class PostsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_post
-      @post = Post.find(params[:id])
-    end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def post_params
-      params.require(:post).permit(:title,:body,:school_class_id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
-    def authorize_post!
-    #setear curso y ver si usuario logeado coincide con profesor del curso
-      @school_class = SchoolClass.find(params[:school_class_id])
-      unless current_user.equal?(@school_class.teacher) do
-         controller.flash[:error] = "Debes ser profesor del curso para crear un nuevo anuncio"
-         controller.redirect_to url_for(controller: :home, action: :index)
-      end
-    end
-    end
+  # Never trust parameters from the scary internet,
+  # only allow the white list through.
+  def post_params
+    params.require(:post).permit(:title, :body, :school_class_id)
+  end
 
+  def authorize_post!
+    # setear curso y ver si usuario logeado coincide con profesor del curso
+    @school_class = SchoolClass.find(params[:school_class_id])
+    unless current_user.equal?(@school_class.teacher)
+      controller.flash[:error] = 'Debes ser profesor del curso para crear un nuevo anuncio'
+      controller.redirect_to url_for(controller: :home, action: :index)
+    end
+  end
 end

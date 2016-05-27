@@ -1,0 +1,2 @@
+module MultimediaPostsHelper
+end
