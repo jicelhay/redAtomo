@@ -42,14 +42,24 @@
 
   <div id="multimedia_cards">
     <!--  Contenido principal -->
-    <% @multimedia_posts.each do |m_post| %>
-      <div class="card medium">
-        <div class="custom_card-image">
-          <img class="materialboxed" src="<%= m_post.img.url %>">
+    <% counter = 0 %>
+    <div class="row">
+      <% @multimedia_posts.limit(8).each do |m_post| %>
+        <div class="col s3">
+          <div class="card small">
+            <div class="card-image">
+              <img class="materialboxed" src="<%= m_post.img.url %>"/>
+              <span class="card-title"><h5 style="color: white;"><%= m_post.title %></h5></span>
+            </div>
+          </div>
         </div>
-        <div class="custom_card-content">
-          <span class="card-title grey-text text-darken-4"><%= m_post.title %></span>
-        </div>
-      </div>
-    <% end %>
+        <% counter += 1 %>
+        <% if counter == 4 %>
+            </div>
+            <div class="row">
+        <% elsif counter == 8 %>
+            </div>
+        <% end %>
+      <% end %>
+    </div>
   </div>
