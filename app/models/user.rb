@@ -28,9 +28,12 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
+
+  acts_as_token_authenticatable
          
   has_many :posts
   has_many :parent_obligations
+  has_many :parent_classes, through: :parent_obligations, source: :school_class
   has_many :school_classes
   has_attached_file :image, styles: { thumb: ["64x64#", :jpg] }, default_url: ":style/rsz_fat_guy.jpg"
   
