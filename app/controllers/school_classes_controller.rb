@@ -1,4 +1,5 @@
 class SchoolClassesController < ApplicationController
+skip_before_filter :verify_authenticity_token
 before_filter :authenticate_user!
 before_action :authenticate_teacher
 
@@ -8,7 +9,9 @@ end
 
 def update
   respond_to do |format|
-      if @school_class.update(name: params[:school_class][:name], securityCode: params[:school_class][:securityCode])
+      update_class = @school_class.update(name: params[:school_class][:name], securityCode: params[:school_class][:securityCode])
+      update_teacher = @school_class.teacher.update(name: params[:user][:name], email: params[:user][:email])
+      if update_class && update_teacher
         format.html { redirect_to @school_class, notice: 'Datos de curso actualizado' }
         format.json { render :show, status: :ok, location: @school_class }
       else

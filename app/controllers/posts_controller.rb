@@ -1,14 +1,16 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
   before_action :authorize_post!, only: [:new,:create]
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
 
   # ----------------------Clasificacion de posts (JS)---------------------------
 
   def avisos_from_school_class
     @user = current_user
-    @posts = (SchoolClass.find(params[:school_class_id])).posts
-    @school_class = current_user.school_classes.first
+
+    @school_class = SchoolClass.find(params[:school_class_id])
+    @posts = (@school_class).posts
+
     # En caso de crear un nuevo post:
       @post = Post.new
     #TODO: activar filtro:
@@ -21,8 +23,8 @@ class PostsController < ApplicationController
 
   def multimedia_from_school_class
     @user = current_user
-    @posts = (SchoolClass.find(params[:school_class_id])).posts
-    @school_class = current_user.school_classes.first
+    @school_class = SchoolClass.find(params[:school_class_id])
+    @posts = (@school_class).posts
     # En caso de crear un nuevo post:
       @post = Post.new
     #TODO: activar filtro:
@@ -35,8 +37,8 @@ class PostsController < ApplicationController
 
   def comunicaciones_from_school_class
     @user = current_user
-    @posts = (SchoolClass.find(params[:school_class_id])).posts
-    @school_class = current_user.school_classes.first
+    @school_class = SchoolClass.find(params[:school_class_id])
+    @posts = (@school_class).posts
     # En caso de crear un nuevo post:
       @post = Post.new
     #TODO: activar filtro:
