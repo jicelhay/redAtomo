@@ -2,11 +2,11 @@
   
   <%= fields_for :user, @school_class.teacher do |ft| %>
     <div class="form-group">
-      <%= ft.label :name, "Nombre Prof.:", class: 'control-label col-lg-2' %>
+      <%= ft.label :name, "Nombre:", class: 'control-label col-lg-2' %>
       <div class="col-lg-10">
         <%= ft.text_field :name, class: 'form-control', required: true %>
       </div>
-       <%= ft.label :email, "Email Prof.:", class: 'control-label col-lg-2' %>
+       <%= ft.label :email, "Email:", class: 'control-label col-lg-2' %>
       <div class="col-lg-10">
         <%= ft.text_field :email, class: 'form-control', required: true %>
       </div>

@@ -10,6 +10,10 @@ class HomeController < ApplicationController
 
   def index
     #TODO: fix this
+    if !current_user.present? and @LMS_user_id == nil
+      render plain: "Debes acceder a redATOMO mediante Aula primero."
+      return nil
+    end
 
     #Check if user needs to be created.
     if !User.exists?(aula_id: @LMS_user_id)
@@ -44,7 +48,7 @@ class HomeController < ApplicationController
     else
       @school_class = SchoolClass.find_by(aula_id: session[:context_id])
     end
-    puts "Error user invalid: " + (@user.errors.full_messages).to_s
+    #puts "Error user invalid: " + (@user.errors.full_messages).to_s
     @posts = @school_class.posts
 
     # En caso de crear un nuevo post:
@@ -67,7 +71,7 @@ class HomeController < ApplicationController
 
   private
     def check_lti 
-      if request.method == "POST"
+      if request.method == "POST" && params[:lti_message_type] == "basic-lti-launch-request"
         @LMS_context_title = params[:context_title]
         @LMS_context_id = params[:context_id]
         @LMS_user_id = params[:user_id]
