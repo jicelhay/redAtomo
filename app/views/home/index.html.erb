@@ -19,4 +19,12 @@
 
 <div id="paper">
   <%= render partial: 'posts/content_avisos', school_class: @school_class, post: @post %>
-</div>
+</div><!-- 
+<% flash.each do |name, msg| -%>
+  <%= content_tag :div, msg, class: name %>
+<% end -%> -->
+<% if flash[:alert]  %>
+  <%= javascript_tag do %>
+    alert('<%= flash[:alert] %>')
+  <% end %>
+<% end %>

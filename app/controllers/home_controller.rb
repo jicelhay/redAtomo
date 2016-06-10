@@ -18,7 +18,7 @@ class HomeController < ApplicationController
     #Check if user needs to be created.
     if !User.exists?(aula_id: @LMS_user_id)
       #TODO: fix this! (email must be unique)
-      no_email = "no_email_for_user_" + (@LMS_user_id).to_s + "@gmail.com"
+      no_email = "no_hay_email_" + (@LMS_user_id).to_s + "@gmail.com"
       @user = User.create(name: "Profesor(a)",
         email: no_email, 
         password: "0123456", 
@@ -40,7 +40,8 @@ class HomeController < ApplicationController
       session[:context_id] = @LMS_context_id
     end
     if !SchoolClass.exists?(aula_id: session[:context_id])
-      @school_class = SchoolClass.create(securityCode: '12345', 
+      code = 'codigo_' + @LMS_user_id + "_" + @LMS_context_id
+      @school_class = SchoolClass.create(securityCode: code, 
         user_id: @user.id, 
         school_id: 1, 
         aula_id: session[:context_id], 
