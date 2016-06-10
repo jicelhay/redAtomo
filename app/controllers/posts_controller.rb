@@ -10,6 +10,7 @@ class PostsController < ApplicationController
   def avisos_from_school_class
     @user = current_user
     @school_class = SchoolClass.find(params[:school_class_id])
+
     # En caso de crear un nuevo post:
     @post = Post.new
     @multimedia_post = MultimediaPost.new
@@ -40,7 +41,7 @@ class PostsController < ApplicationController
   def comunicaciones_from_school_class
     @user = current_user
     @school_class = SchoolClass.find(params[:school_class_id])
-    @posts = @school_class.posts
+    @posts = (@school_class).posts
     # En caso de crear un nuevo post:
     @post = Post.new
     @multimedia_post = MultimediaPost.new

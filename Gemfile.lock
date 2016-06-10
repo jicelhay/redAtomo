@@ -94,6 +94,9 @@ GEM
     globalid (0.3.6)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
+    ims-lti (1.1.10)
+      builder
+      oauth (~> 0.4.5)
     jbuilder (2.4.1)
       activesupport (>= 3.0.0, < 5.1)
       multi_json (~> 1.2)
@@ -120,6 +123,7 @@ GEM
     net-ssh (3.1.1)
     nokogiri (1.6.7.2)
       mini_portile2 (~> 2.0.0.rc2)
+    oauth (0.4.7)
     orm_adapter (0.5.0)
     paperclip (4.3.6)
       activemodel (>= 3.2.0)
@@ -217,9 +221,11 @@ DEPENDENCIES
   capistrano-rbenv (~> 2.0)
   devise
   font-awesome-rails
+  ims-lti
   jbuilder (~> 2.0)
   jquery-rails
   materialize-sass
+  oauth
   paperclip (~> 4.2)
   pg (~> 0.15)
   puma

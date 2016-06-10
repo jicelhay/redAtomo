@@ -26,6 +26,12 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'devise'
 gem 'simple_token_authentication', '~> 1.0'
 
+# Oauth 1.0
+gem 'oauth'
+
+#LTI library
+gem 'ims-lti'
+
 # Iconos EXAMPLES: http://fortawesome.github.io/Font-Awesome/examples/
 gem 'font-awesome-rails'
 

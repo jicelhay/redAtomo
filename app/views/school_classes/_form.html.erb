@@ -1,8 +1,20 @@
 <%= form_for @school_class do |f| %>
-
+  
+  <%= fields_for :user, @school_class.teacher do |ft| %>
+    <div class="form-group">
+      <%= ft.label :name, "Nombre:", class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= ft.text_field :name, class: 'form-control', required: true %>
+      </div>
+       <%= ft.label :email, "Email:", class: 'control-label col-lg-2' %>
+      <div class="col-lg-10">
+        <%= ft.text_field :email, class: 'form-control', required: true %>
+      </div>
+    </div>
+  <% end %>
 
   <div class="form-group">
-    <%= f.label :name, "Nombre:", class: 'control-label col-lg-2' %>
+    <%= f.label :name, "Curso:", class: 'control-label col-lg-2' %>
     <div class="col-lg-10">
       <%= f.text_field :name, class: 'form-control', required: true %>
     </div>

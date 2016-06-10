@@ -59,6 +59,7 @@ ActiveRecord::Schema.define(version: 20160527041626) do
     t.datetime "updated_at",   null: false
     t.integer  "school_id"
     t.integer  "user_id"
+    t.integer  "aula_id"
   end
 
   create_table "schools", force: :cascade do |t|
@@ -87,7 +88,7 @@ ActiveRecord::Schema.define(version: 20160527041626) do
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.string   "authentication_token",   limit: 30
-  end
+    t.integer  "aula_id"
 
   add_index "users", ["authentication_token"], name: "index_users_on_authentication_token", unique: true, using: :btree
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
