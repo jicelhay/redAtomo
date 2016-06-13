@@ -3,7 +3,6 @@ class Api::ParentObligationController < Api::APIController
   before_action :set_school_class_code, only: :create
   before_action :set_parent_obligation, only: :destroy
 
-  acts_as_token_authentication_handler_for User
 
   def create
 

@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   # Rutas API
   namespace :api, defaults: { format: :json } do
+    
     post 'login' => 'users#login'
-    post 'sign-up' => 'users#sign_up'
+    post 'signup' => 'users#create'
 
-    post 'register-class' => 'parent_obligation#create'
-    delete 'delete-class' => 'parent_obligation#destroy'
+    post 'registerclass' => 'parent_obligation#create'
+    delete 'deleteclass' => 'parent_obligation#destroy'
+
+    get 'posts' => 'posts#index'
+    post 'likepost' => 'posts#like_post'
+
   end
 
   root 'home#index'

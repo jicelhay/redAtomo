@@ -13,10 +13,12 @@ juan = User.create(email: 'juan.celhay@gmail.com',
              password_confirmation: 'mamamia123',
              teacher: true)
 #Crear Colegios
-School.create(name: 'Colegio SiemprePenca')
+School.create(name: 'Colegio DePrueba')
 
 #Crear Cursos
 example_class = SchoolClass.create(name: '3°A', securityCode: '12345', user_id: 1, school_id: 1)
+example_class2 = SchoolClass.create(name: 'IV°A', securityCode: '11111', user_id: 1, school_id: 1)
+example_class3 = SchoolClass.create(name: 'II°A', securityCode: '22222', user_id: 1, school_id: 1)
 
 #Crear Apoderados
 pedro = User.create(email: 'psaratscheff@gmail.com',
@@ -31,8 +33,18 @@ diego = User.create(email: 'difernandez@uc.cl',
              password_confirmation: 'mamamia123',
              teacher: false)
 
+prueba = User.create(email: 'prue@ba.com',
+             password: '123456',
+             name: 'Don Probador',
+             password_confirmation: '123456',
+             teacher: false)
+
 ParentObligation.create(user_id: pedro.id,school_class_id: example_class.id)
 ParentObligation.create(user_id: diego.id,school_class_id: example_class.id)
+
+ParentObligation.create(user_id: prueba.id,school_class_id: example_class.id)
+ParentObligation.create(user_id: prueba.id,school_class_id: example_class2.id)
+ParentObligation.create(user_id: prueba.id,school_class_id: example_class3.id)
 
 #Crear Avisos
 Post.create(title: 'Paseo de curso', body: 'El paseo de curso se cancelará por mal tiempo. Agradezco su comprensión'+

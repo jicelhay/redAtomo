@@ -3,6 +3,7 @@ class Api::APIController < ActionController::Base
 
   before_action :set_default_response_format
 
+  acts_as_token_authentication_handler_for User, fallback_to_devise: false
 
 
   def not_found
@@ -17,15 +18,16 @@ class Api::APIController < ActionController::Base
 
   def set_default_response_format
     request.format = :json
-    end
+  end
 
   # https://github.com/gonzalo-bulnes/simple_token_authentication/issues/154
   def require_authentication!
       throw(:warden, scope: :user) unless current_user.presence
-    end
+  end
 
   def set_pagination
     @page =	(!params[:page].nil?)	?	params[:page].to_i	: 1
-    @per_page = (!params[:per_page].nil?)	?	params[:per_page].to_i	: 20
-    end
+    @per_page = (!params[:per_page].nil?)	?	params[:per_page].to_i	: 8
+  end
+
 end

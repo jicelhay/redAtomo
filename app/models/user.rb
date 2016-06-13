@@ -32,6 +32,7 @@ class User < ActiveRecord::Base
   acts_as_token_authenticatable
          
   has_many :posts
+  has_many :likes
   has_many :parent_obligations
   has_many :parent_classes, through: :parent_obligations, source: :school_class
   has_many :school_classes
@@ -39,5 +40,6 @@ class User < ActiveRecord::Base
   
   validates_attachment :image,
                      content_type: { content_type: ["image/jpeg", "image/png"] }
+  validates :name, presence: true                   
      
 end
