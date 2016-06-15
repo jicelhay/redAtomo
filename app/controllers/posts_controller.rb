@@ -134,7 +134,7 @@ class PostsController < ApplicationController
   def authorize_post!
     # setear curso y ver si usuario logeado coincide con profesor del curso
     @school_class = SchoolClass.find(params[:school_class_id])
-    unless current_user.equal?(@school_class.teacher)
+    unless current_user.id.equal?(@school_class.teacher.id)
       controller.flash[:error] = 'Debes ser profesor del curso para crear un nuevo anuncio'
       controller.redirect_to url_for(controller: :home, action: :index)
     end
