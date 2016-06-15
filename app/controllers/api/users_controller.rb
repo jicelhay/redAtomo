@@ -3,8 +3,7 @@ class Api::UsersController < Api::APIController
   def login
     user_email  = params[:user][:email].presence
     @user = User.where(email: params[:user][:email]).take if user_email
-    validity = @user.valid_password?(params[:user][:password])
-    if validity
+    if @user.present? && @user.valid_password?(params[:user][:password])
       sign_in @user, store: false
     else
       bad_parameters

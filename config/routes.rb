@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     post 'signup' => 'users#create'
 
     post 'registerclass' => 'parent_obligation#create'
-    delete 'deleteclass' => 'parent_obligation#destroy'
+    post 'deleteclass' => 'parent_obligation#destroy'
 
     get 'posts' => 'posts#index'
     post 'likepost' => 'posts#like_post'
