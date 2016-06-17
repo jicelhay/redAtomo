@@ -36,6 +36,7 @@ class User < ActiveRecord::Base
   has_many :parent_obligations
   has_many :parent_classes, through: :parent_obligations, source: :school_class
   has_many :school_classes
+  has_many :comments
   has_attached_file :image, styles: { thumb: ["64x64#", :jpg] }, default_url: ":style/rsz_fat_guy.jpg"
   
   validates_attachment :image,

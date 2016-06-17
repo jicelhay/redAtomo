@@ -50,13 +50,19 @@
           <span class="card-title"><%=post.title%></span>
           <span class="post-date"><%=post.created_at.strftime("%d/%m/%Y")%></span>
         </div>
+        <div class="card-action">
+          <a href="javascript:toggle('secret')" class="waves-effect waves-red grey-text text-darken-4 btn-flat">Comentar</a>
+          <div id="secret" style="display: none;">
+            Top Secret!
+          </div>
+        </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"> <i class="material-icons right">close</i></span>
           <p><%=post.body%></p>
-          <div class="card-action">
+          <!-- <div class="card-action">
             <a href="www.arreglar.com">EDITAR</a>
-          </div>
-        </div>
+          </div> -->
+        </div> 
       </div>
     </div>
   </div>
