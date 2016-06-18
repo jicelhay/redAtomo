@@ -29,7 +29,7 @@ class MultimediaPostsController < ApplicationController
     respond_to do |format|
       if @multimedia_post.save
         puts @multimedia_post.title
-        format.html { redirect_to url_for(controller: :home, action: :index) }
+        format.html { redirect_to root_path(multimedia: true) }
         format.json { render :show, status: :created, location: @multimedia_post }
       else
         format.html { redirect_to url_for(controller: :home, action: :index) }
@@ -57,7 +57,7 @@ class MultimediaPostsController < ApplicationController
   def destroy
     @multimedia_post.destroy
     respond_to do |format|
-      format.html { redirect_to multimedia_posts_url, notice: 'Multimedia post was successfully destroyed.' }
+      format.html { redirect_to root_path(multimedia: true) }
       format.json { head :no_content }
     end
   end

@@ -51,6 +51,9 @@
               <img class="materialboxed" src="<%= m_post.img.url %>"/>
             </div>
             <span class="card-title center-align"><h5 style="color: white;"><%= m_post.title %></h5></span>
+            <%= link_to school_class_multimedia_post_path(@school_class.id, m_post.id), { method: :delete, data: { confirm: 'Are you sure?' }, id: 'delete_multimedia', class: 'btn-floating btn waves-effect waves-light red' } do %>
+            <i class="material-icons">delete</i>
+            <% end %>
           </div>
         </div>
         <% counter += 1 %>

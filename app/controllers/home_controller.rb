@@ -20,10 +20,10 @@ class HomeController < ApplicationController
       #TODO: fix this! (email must be unique)
       no_email = "no_hay_email_" + (@LMS_user_id).to_s + "@gmail.com"
       @user = User.create(name: "Profesor(a)",
-        email: no_email, 
-        password: "0123456", 
-        password_confirmation: "0123456", 
-        aula_id: @LMS_user_id, 
+        email: no_email,
+        password: "0123456",
+        password_confirmation: "0123456",
+        aula_id: @LMS_user_id,
         teacher: true)
       #puts "Usuario valido?: " + (@user.valid?).to_s + " " + (@user[:aula_id]).to_s
       #puts "Error: " + (@user.errors.full_messages).to_s
@@ -32,7 +32,7 @@ class HomeController < ApplicationController
     end
 
     if !current_user.present?
-      sign_in(@user) 
+      sign_in(@user)
     end
 
     #Check if class needs to be created.
@@ -41,10 +41,10 @@ class HomeController < ApplicationController
     end
     if !SchoolClass.exists?(aula_id: session[:context_id])
       code = 'codigo_' + @LMS_user_id + "_" + @LMS_context_id
-      @school_class = SchoolClass.create(securityCode: code, 
-        user_id: @user.id, 
-        school_id: 1, 
-        aula_id: session[:context_id], 
+      @school_class = SchoolClass.create(securityCode: code,
+        user_id: @user.id,
+        school_id: 1,
+        aula_id: session[:context_id],
         name: @LMS_context_title)
     else
       @school_class = SchoolClass.find_by(aula_id: session[:context_id])
@@ -55,6 +55,9 @@ class HomeController < ApplicationController
     # En caso de crear un nuevo post:
     @post = Post.new
     @multimedia_post = MultimediaPost.new
+
+    # En caso de venir de la pestaña multimedia
+    @multimedia = params[:multimedia]
   end
 
   def configuracion
@@ -68,7 +71,7 @@ class HomeController < ApplicationController
   end
 
   private
-    def check_lti 
+    def check_lti
       if request.method == "POST" && params[:lti_message_type] == "basic-lti-launch-request"
         @LMS_context_title = params[:context_title]
         @LMS_context_id = params[:context_id]
