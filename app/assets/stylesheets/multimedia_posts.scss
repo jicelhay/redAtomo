@@ -40,8 +40,14 @@
 }
 
 #multimedia_cards .card.small {
-  height: 200px !important;
+  height: 160px !important;
 }
 #multimedia_cards .card .card-title {
   background-color: rgba(0,0,0,.5) !important;
+  padding: 5px;
+  margin: 0;
+  width: 100%;
+  pointer-events: none;
+  position: absolute;
+  bottom: 0;
 }
