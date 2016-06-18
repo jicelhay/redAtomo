@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # Rutas API
   namespace :api, defaults: { format: :json } do
-    
+
     post 'login' => 'users#login'
     post 'signup' => 'users#create'
 

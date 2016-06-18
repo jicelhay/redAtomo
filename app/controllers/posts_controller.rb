@@ -33,6 +33,8 @@ class PostsController < ApplicationController
     # Contenido
     @multimedia_posts = MultimediaPost.all # TODO: @school_class.multimedia_posts
 
+    @offset = params[:offset].to_i
+
     respond_to do |format|
       format.js
     end

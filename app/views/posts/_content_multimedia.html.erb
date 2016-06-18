@@ -1,8 +1,8 @@
 <!-- Modal Triggers -->
   <div style="position: relative; float: right; margin-right: 10%; margin-top: 25px">
     <div class="fixed-action-btn horizontal" style="position: absolute; display: inline-block;
-  top: 50%;
-  margin-top: -65px;">
+         top: 50%;
+         margin-top: -65px;">
       <a class="btn-floating btn-large green modal-trigger" href="#add-media-modal">
         <i class="material-icons">publish</i>
       </a>
@@ -16,6 +16,25 @@
       </ul>
     </div>
   </div>
+
+<!-- Pagination -->
+  <% if @multimedia_posts.count > 8 %>
+    <div id='paginator' style='width=100%; text-align: center;'>
+      <ul class="pagination">
+        <li id='page-1' class='active'>
+          <%= link_to('1', fetch_multimedia_posts_path(school_class_id: @school_class.id, offset: 0), remote: true )%>
+        </li>
+        <% pages = @multimedia_posts.count/8 %>
+        <% # 7/8 = 0, 8/8 = 1, 9/8 = 1...%>
+        <% pages += 1 unless @multimedia_posts.count%8 == 0 %>
+        <% (pages - 1).times do |i|%>
+          <li id='page-<%= (i+2).to_s %>'>
+            <%= link_to((i+2).to_s, fetch_multimedia_posts_path(school_class_id: @school_class.id, offset: ((i+1)*8)), remote: true )%>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
 <!-- Modal Structure -->
   <!-- Aviso -->
@@ -40,11 +59,11 @@
     </div>
   </div>
 
+<!--  Contenido principal -->
   <div id="multimedia_cards">
-    <!--  Contenido principal -->
     <% counter = 0 %>
     <div class="row">
-      <% @multimedia_posts.limit(8).each do |m_post| %>
+      <% @multimedia_posts.limit(8).offset(@offset).each do |m_post| %>
         <div class="col s3">
           <div class="card small">
             <div class="card-image">

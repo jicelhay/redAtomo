@@ -1,1 +1,18 @@
 $("#paper").html("<%= escape_javascript(render 'content_multimedia', locals: { posts: @selected }) %>");
+// Update activated page on paginator
+$('.active').removeClass('active');
+$('#page-<%= (@offset/8) + 1 %>').addClass('active');
+// Initializers
+  // Materialbox
+  $('.materialboxed').materialbox();
+  // Modals
+  $('.modal-trigger').leanModal({
+     dismissible: true, // Modal can be dismissed by clicking outside of the modal
+     opacity: .5, // Opacity of modal background
+     in_duration: 300, // Transition in duration
+     out_duration: 200, // Transition out duration
+     //ready: function() { alert('Ready'); }, // Callback for Modal open
+     complete: function() {
+       Materialize.toast('¡Contenido descartado!', 1500) // 1500 is the duration of the toast
+     } // Callback for Modal close
+   });

@@ -7,7 +7,7 @@
     <%= link_to('AVISOS',fetch_avisos_posts_path(school_class_id: @school_class.id), remote: true)%>
   </div>
   <div class="post-it y-bg">
-    <%= link_to('MULTIMEDIA', fetch_multimedia_posts_path(school_class_id: @school_class.id), remote: true)%>
+    <%= link_to('MULTIMEDIA', fetch_multimedia_posts_path(school_class_id: @school_class.id, offset: 0), remote: true)%>
   </div>
   <div class="post-it b-bg">
     <%= link_to('COMUNICACIONES',fetch_comunicaciones_posts_path(school_class_id: @school_class.id), remote: true)%>

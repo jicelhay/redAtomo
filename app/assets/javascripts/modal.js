@@ -13,6 +13,5 @@ $(document).on('page:change ajax:success', function() {
       complete: function() {
         Materialize.toast('¡Contenido descartado!', 1500) // 1500 is the duration of the toast
       } // Callback for Modal close
-    }
-  );
+    });
  });
