@@ -42,18 +42,43 @@
 
 <!--  Contenido principal -->
 <% @posts.each do |post| %>
-  <div class="row post-card">
+  <div class="row post-card" id="post<%=post.id%>">
     <div class="col s12 m11">
       <div class="card grey lighten-2">
         <div class="card-content white-text activator">
-          <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail')%>
+          <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail', size: "64")%>
           <span class="card-title"><%=post.title%></span>
           <span class="post-date"><%=post.created_at.strftime("%d/%m/%Y")%></span>
         </div>
         <div class="card-action">
-          <a href="javascript:toggle('secret')" class="waves-effect waves-red grey-text text-darken-4 btn-flat">Comentar</a>
-          <div id="secret" style="display: none;">
-            Top Secret!
+          <a href="javascript:toggle('secret<%=post.id%>', 'tog<%=post.id%>')" class="waves-effect waves-red grey-text text-darken-4 btn-flat" id="tog<%=post.id%>">Mostrar comentarios</a>
+          <div id="secret<%=post.id%>" style="display: none;">
+            <ul class="collection">
+              <li class="collection-item">
+                <span><a href="#!" class="secondary-content"><i class="material-icons">flag</i></a></span>
+                <div class="comment-container">
+                  <%=image_tag("thumb/avatar.png", class: 'circle', size: "30")%>
+                  <div class="username">
+                    <p class="username">User1</p> 
+                  </div>
+                  <div class="comment">
+                    <p class="comment">Comment 1</p>
+                  </div>
+                </div>
+              </li>
+              <li class="collection-item">                
+                <span><a href="#!" class="secondary-content"><i class="material-icons">flag</i></a></span>
+                <div class="comment-container">
+                  <%=image_tag("thumb/avatar.png", class: 'circle', size: "30")%>
+                  <div class="username">
+                    <p class="username">User2</p> 
+                  </div>
+                  <div class="comment">
+                    <p class="comment">Looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong comment</p>
+                  </div>
+                </div>
+              </li>
+            </ul>
           </div>
         </div>
         <div class="card-reveal">
