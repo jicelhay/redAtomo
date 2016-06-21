@@ -52,8 +52,9 @@ class HomeController < ApplicationController
     #puts "Error user invalid: " + (@user.errors.full_messages).to_s
     @posts = @school_class.posts
 
-    # En caso de crear un nuevo post:
+    # En caso de crear un nuevo post o comentario:
     @post = Post.new
+    @comment = Comment.new
     @multimedia_post = MultimediaPost.new
   end
 

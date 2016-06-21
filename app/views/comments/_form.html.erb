@@ -1,0 +1,7 @@
+<%= form_for [school_class, post, comment], html: { class: "new-comment"}, remote: true do |f| %>
+  <div class="form-group">
+    <div class="">
+      <%= f.text_field :body, placeholder: "Escribe un comentario...", class: 'form-control', required: true %>
+    </div>
+  </div>
+<% end %>
