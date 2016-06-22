@@ -9,6 +9,9 @@ Rails.application.routes.draw do
 
     get 'posts' => 'posts#index'
     post 'likepost' => 'posts#like_post'
+
+    get 'comments' => 'comments#index'
+    post 'comments/create' => 'comments#create'
   end
 
   root 'home#index'
@@ -28,7 +31,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :school_classes do
-    resources :posts
+    resources :posts do
+      resources :comments
+    end
     resources :multimedia_posts
     resources :communication_posts
     resources :parent_obligation, only: [:create, :destroy]

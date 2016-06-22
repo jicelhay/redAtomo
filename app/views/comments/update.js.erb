@@ -1,0 +1,13 @@
+//Change comment content. Not DRY, but couldn't think of other solution.
+var comment = $('#comment<%=@comment.id%>').children("p");
+if (!<%=@comment.flagged%>) 
+{
+	comment.text('<%=@comment.body%>');
+	comment.css("color", "#333");
+}
+else
+{
+	comment.text("Este comentario fue deshabilitado por el profesor.");
+	comment.css("color", "red");
+}
+

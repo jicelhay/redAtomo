@@ -41,21 +41,35 @@
 
 <!--  Contenido principal -->
 <% @posts.each do |post| %>
-  <div class="row post-card">
+  <div class="row post-card" id="post<%=post.id%>">
     <div class="col s12 m11">
       <div class="card grey lighten-2">
         <div class="card-content white-text activator">
-          <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail')%>
+          <%=image_tag(@current_user.image.url(:thumb), class: 'user-thumbnail', size: "64")%>
           <span class="card-title"><%=post.title%></span>
           <span class="post-date"><%=post.created_at.strftime("%d/%m/%Y")%></span>
+        </div>
+        <!--  Commentarios -->
+        <div class="card-action">
+          <div class = "show-new-comment">
+            <a href="javascript:toggle('secret<%=post.id%>', 'tog<%=post.id%>')" class="waves-effect waves-red grey-text text-darken-4 btn-flat show-comment" id="tog<%=post.id%>">Mostrar comentarios</a>
+            <%= render partial: 'comments/form', :locals => {:school_class => @school_class, :post => post, :comment => @comment} %>
+          </div>
+          <div id="secret<%=post.id%>" style="display: none;">
+            <ul class="collection" id="comment-list<%=post.id%>">
+              <% post.comments.each do |comment| %>
+                <%= render partial: 'comments/comment', :locals => {:school_class => @school_class, :post => post, :comment => comment} %>
+              <% end %>
+            </ul>
+          </div>
         </div>
         <div class="card-reveal">
           <span class="card-title grey-text text-darken-4"> <i class="material-icons right">close</i></span>
           <p><%=post.body%></p>
-          <div class="card-action">
+          <!-- <div class="card-action">
             <a href="www.arreglar.com">EDITAR</a>
-          </div>
-        </div>
+          </div> -->
+        </div> 
       </div>
     </div>
   </div>

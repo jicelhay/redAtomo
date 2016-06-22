@@ -16,5 +16,6 @@ class Post < ActiveRecord::Base
   alias_attribute :author, :user
 
   has_many :likes
+  has_many :comments
   
 end
