@@ -11,6 +11,9 @@ Rails.application.routes.draw do
     get 'posts' => 'posts#index'
     post 'likepost' => 'posts#like_post'
 
+    get 'comments' => 'comments#index'
+    post 'comments/create' => '#comments#create'
+
   end
 
   root 'home#index'
