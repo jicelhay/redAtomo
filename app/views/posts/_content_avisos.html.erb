@@ -57,7 +57,7 @@
             <%= render partial: 'comments/form', :locals => {:school_class => @school_class, :post => post, :comment => @comment} %>
           </div>
           <div id="secret<%=post.id%>" style="display: none;">
-            <ul class="collection">
+            <ul class="collection" id="comment-list<%=post.id%>">
               <li class="collection-item">
                 <span><a href="#!" class="secondary-content"><i class="material-icons">flag</i></a></span>
                 <div class="comment-container">
@@ -71,18 +71,7 @@
                 </div>
               </li>
               <% post.comments.each do |comment| %>
-                <li class="collection-item">
-                  <span><a href="#!" class="secondary-content"><i class="material-icons">flag</i></a></span>
-                  <div class="comment-container">
-                    <%=image_tag(comment.user.image.url(:thumb), class: 'circle', size: "30")%>
-                    <div class="username">
-                      <p class="username"><%=comment.user.name%></p> 
-                    </div>
-                    <div class="comment">
-                      <p class="comment"><%=comment.body%></p>
-                    </div>
-                  </div>
-                </li>
+              <%= render partial: 'comments/comment', :locals => {:comment => comment} %>
               <% end %>
             </ul>
           </div>

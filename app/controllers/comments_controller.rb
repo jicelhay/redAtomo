@@ -6,12 +6,20 @@ class CommentsController < ApplicationController
 	end
 
 	def create
+		# Ajax in comments adapted from https://gemfile.wordpress.com/2014/03/06/rails-blog-comments-with-ajax/
 		@comment = Comment.new(body: params[:comment][:body],
                      post_id: params[:post_id],
                      user_id: current_user.id)
 		if @comment.save
-			redirect_to @comment
+			respond_to do |format|
+				format.html do
+					puts @comment.body
+					redirect_to @comment
+				end
+				format.js
+			end
 		end
+
 	end
 
 	private

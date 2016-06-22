@@ -1,0 +1,13 @@
+//Show comments via AJAX
+var comments_list = $('#comment-list<%=@post.id%>');
+comments_list.append('<%= escape_javascript(render partial: @comment) %>');
+
+//Clear value of text_field
+$('#comment-body<%=@post.id%>').val('');
+
+//Show comments (if hidden). Not DRY, but can't trigger click on href.
+if ($('#tog<%=@post.id%>').text() == "Mostrar comentarios") 
+{
+	document.getElementById('secret<%=@post.id%>').style.display = (document.getElementById('secret<%=@post.id%>').style.display == "none") ? "" : "none";
+	document.getElementById('tog<%=@post.id%>').childNodes[0].nodeValue = (document.getElementById('tog<%=@post.id%>').childNodes[0].nodeValue == "Mostrar comentarios") ? "Ocultar comentarios" : "Mostrar comentarios";
+}
