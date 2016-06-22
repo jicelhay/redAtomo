@@ -16,11 +16,12 @@ class Api::CommentsController < Api::APIController
 
 	def index
 		@comments = @post.comments
+		render :index, status: :ok
 	end
 
 	private
 		def set_context
-			@post = Post.find(params[:post_id])
+			@post = Post.find(params[:postId])
 			unless @post.present?
 			  bad_parameters
 		  return

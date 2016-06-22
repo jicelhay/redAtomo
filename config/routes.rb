@@ -12,7 +12,7 @@ Rails.application.routes.draw do
     post 'likepost' => 'posts#like_post'
 
     get 'comments' => 'comments#index'
-    post 'comments/create' => '#comments#create'
+    post 'comments/create' => 'comments#create'
 
   end
 
