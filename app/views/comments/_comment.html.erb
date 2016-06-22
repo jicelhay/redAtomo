@@ -1,12 +1,20 @@
 <li class="collection-item">
-  <span><a href="#!" class="secondary-content"><i class="material-icons">flag</i></a></span>
+  <span>
+    <%= link_to(school_class_post_comment_path(@school_class.id, comment.post.id, comment.id), method: :patch, remote: true, :class => "secondary-content") do%>
+      <i class="material-icons">flag</i> 
+    <% end %>
+  </span>
   <div class="comment-container">
     <%=image_tag(comment.user.image.url(:thumb), class: 'circle', size: "30")%>
     <div class="username">
       <p class="username"><%=comment.user.name%></p> 
     </div>
-    <div class="comment">
-      <p class="comment"><%=comment.body%></p>
+    <div class="comment" id="comment<%=comment.id%>">
+      <% if !comment.flagged %>
+        <p class="comment"><%=comment.body%></p>
+      <% else %>
+        <p class="flagged-comment">Este comentario fue deshabilitado por el profesor.</p>
+      <% end %>
     </div>
   </div>
 </li>

@@ -58,20 +58,8 @@
           </div>
           <div id="secret<%=post.id%>" style="display: none;">
             <ul class="collection" id="comment-list<%=post.id%>">
-              <li class="collection-item">
-                <span><a href="#!" class="secondary-content"><i class="material-icons">flag</i></a></span>
-                <div class="comment-container">
-                  <%=image_tag("thumb/avatar.png", class: 'circle', size: "30")%>
-                  <div class="username">
-                    <p class="username">User1</p> 
-                  </div>
-                  <div class="comment">
-                    <p class="comment">Comment 1</p>
-                  </div>
-                </div>
-              </li>
               <% post.comments.each do |comment| %>
-              <%= render partial: 'comments/comment', :locals => {:comment => comment} %>
+                <%= render partial: 'comments/comment', :locals => {:school_class => @school_class, :post => post, :comment => comment} %>
               <% end %>
             </ul>
           </div>
