@@ -1,0 +1,38 @@
+// Place all the styles related to the Comments controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.comment-container {
+}
+
+.username {
+  color: blue;
+  display: inline;
+}
+
+.comment {
+  word-wrap: break-word;
+  width: 700px;
+  vertical-align: top;
+}
+
+.new-comment {
+  width: 71%;
+  margin-left: 26%;
+  vertical-align: top;
+  word-wrap: break-word;
+}
+
+.show-comment {
+  width: 26%;
+  float: left;
+  vertical-align: bottom;
+}
+
+.show-new-comment {
+  width: 100%;
+}
+
+.flagged-comment {
+  color: red;
+}
