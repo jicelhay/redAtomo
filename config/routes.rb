@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
   # Rutas API
   namespace :api, defaults: { format: :json } do
-
     post 'login' => 'users#login'
     post 'signup' => 'users#create'
 
@@ -10,7 +9,6 @@ Rails.application.routes.draw do
 
     get 'posts' => 'posts#index'
     post 'likepost' => 'posts#like_post'
-
   end
 
   root 'home#index'
@@ -25,13 +23,14 @@ Rails.application.routes.draw do
   get '/fetch_configuracion' => 'home#configuracion',
       as: 'fetch_configuracion'
 
-  post "/" => "home#index", as: "lms_init"
+  post '/' => 'home#index', as: 'lms_init'
 
   devise_for :users
 
   resources :school_classes do
     resources :posts
     resources :multimedia_posts
+    resources :communication_posts
     resources :parent_obligation, only: [:create, :destroy]
   end
 end

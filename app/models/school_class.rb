@@ -15,6 +15,8 @@ class SchoolClass < ActiveRecord::Base
   has_many :parent_obligations
   has_many :users, through: :parent_obligations
   has_many :posts
+  has_many :multimedia_posts
+  has_many :communication_posts
   belongs_to :school
   belongs_to :user
 

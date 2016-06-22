@@ -54,34 +54,35 @@
   <!-- Comunicación -->
   <div id="add-comm-modal" class="modal">
     <div class="modal-content">
-      <h4>Agregar Comunicación</h4>
-      <p>Configurar form aquí...</p>
+      <%= render partial: 'posts/form_for_communication', school_class: @school_class, communication_post: @communication_post %>
     </div>
   </div>
 
 <!--  Contenido principal -->
-  <div id="multimedia_cards">
-    <% counter = 0 %>
-    <div class="row">
-      <% @multimedia_posts.limit(8).offset(@offset).each do |m_post| %>
-        <div class="col s3">
-          <div class="card small">
-            <div class="card-image">
-              <img class="materialboxed" src="<%= m_post.img.url %>"/>
+  <% unless @multimedia_posts.count == 0 %>
+    <div id="multimedia_cards">
+      <% counter = 0 %>
+      <div class="row">
+        <% @multimedia_posts.limit(8).offset(@offset).each do |m_post| %>
+          <div class="col s3">
+            <div class="card small">
+              <div class="card-image">
+                <img class="materialboxed" src="<%= m_post.img.url %>"/>
+              </div>
+              <span class="card-title center-align"><h5 style="color: white;"><%= m_post.title %></h5></span>
+              <%= link_to school_class_multimedia_post_path(@school_class.id, m_post.id), { method: :delete, data: { confirm: 'Are you sure?' }, id: 'delete_multimedia', class: 'btn-floating btn waves-effect waves-light red' } do %>
+              <i class="material-icons">delete</i>
+              <% end %>
             </div>
-            <span class="card-title center-align"><h5 style="color: white;"><%= m_post.title %></h5></span>
-            <%= link_to school_class_multimedia_post_path(@school_class.id, m_post.id), { method: :delete, data: { confirm: 'Are you sure?' }, id: 'delete_multimedia', class: 'btn-floating btn waves-effect waves-light red' } do %>
-            <i class="material-icons">delete</i>
-            <% end %>
           </div>
-        </div>
-        <% counter += 1 %>
-        <% if counter == 4 %>
-            </div>
-            <div class="row">
-        <% elsif counter == 8 %>
-            </div>
+          <% counter += 1 %>
+          <% if counter == 4 %>
+              </div>
+              <div class="row">
+          <% elsif counter == 8 %>
+              </div>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
   </div>

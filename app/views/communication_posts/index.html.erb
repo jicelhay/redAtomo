@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Communication Posts</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @communication_posts.each do |communication_post| %>
+      <tr>
+        <td><%= link_to 'Show', communication_post %></td>
+        <td><%= link_to 'Edit', edit_communication_post_path(communication_post) %></td>
+        <td><%= link_to 'Destroy', communication_post, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Communication post', new_communication_post_path %>

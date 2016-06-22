@@ -35,8 +35,7 @@
   <!-- Comunicación -->
   <div id="add-comm-modal" class="modal">
     <div class="modal-content">
-      <h4>Agregar Comunicación</h4>
-      <p>Configurar form aquí...</p>
+      <%= render partial: 'posts/form_for_communication', school_class: @school_class, communication_post: @communication_post %>
     </div>
   </div>
 

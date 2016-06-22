@@ -1,0 +1,15 @@
+<%= form_for [@school_class, @communication_post], html: { multipart: true } do |f| %>
+  <div class="form-group">
+    <div class="">
+      <%= f.text_field :title, placeholder: "Título", class: 'form-control', required: true %>
+    </div>
+    <div class="">
+      <%= f.file_field :pdf, class: 'form-control', required: true, size: '50x10' %>
+    </div>
+  </div>
+  <div class="actions">
+    <%= button_tag( class: "waves-effect waves-light btn") do %>
+      Agregar Comunicación
+    <% end %>
+  </div>
+<% end %>

@@ -29,7 +29,7 @@ gem 'simple_token_authentication', '~> 1.0'
 # Oauth 1.0
 gem 'oauth'
 
-#LTI library
+# LTI library
 gem 'ims-lti'
 
 # Iconos EXAMPLES: http://fortawesome.github.io/Font-Awesome/examples/
@@ -46,6 +46,11 @@ gem 'paperclip', '~> 4.2'
 
 # Para facilitar la creacion de forms (Es opcional su uso)
 gem 'simple_form'
+
+# Archivos PDF
+gem 'pdfkit'
+# Thumbnails de los PDF (Requires 'sudo apt-get install libmagickwand-dev')
+gem 'rmagick', '~> 2.15', '>= 2.15.4'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

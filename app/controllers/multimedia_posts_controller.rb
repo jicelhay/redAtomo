@@ -25,10 +25,11 @@ class MultimediaPostsController < ApplicationController
   # POST /multimedia_posts.json
   def create
     @multimedia_post = MultimediaPost.new(multimedia_post_params)
+    @school_class = SchoolClass.find(params[:school_class_id])
+    @multimedia_post.school_class = @school_class
 
     respond_to do |format|
       if @multimedia_post.save
-        puts @multimedia_post.title
         format.html { redirect_to root_path(multimedia: true) }
         format.json { render :show, status: :created, location: @multimedia_post }
       else

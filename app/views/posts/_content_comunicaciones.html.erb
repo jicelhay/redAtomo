@@ -17,32 +17,72 @@
     </div>
   </div>
 
-<!-- Modal Structure -->
-  <!-- Aviso -->
-  <div id="add-post-modal" class="modal">
-    <div class="modal-content">
-      <%= render partial: 'posts/form', school_class: @school_class, post: @post %>
-    </div>
-  </div>
+  <!-- Pagination -->
+    <% if @communication_posts.count > 8 %>
+      <div id='paginator' style='width=100%; text-align: center;'>
+        <ul class="pagination">
+          <li id='page-1' class='active'>
+            <%= link_to('1', fetch_communication_posts_path(school_class_id: @school_class.id, offset: 0), remote: true )%>
+          </li>
+          <% pages = @communication_posts.count/8 %>
+          <% # 7/8 = 0, 8/8 = 1, 9/8 = 1...%>
+          <% pages += 1 unless @communication_posts.count%8 == 0 %>
+          <% (pages - 1).times do |i|%>
+            <li id='page-<%= (i+2).to_s %>'>
+              <%= link_to((i+2).to_s, fetch_communication_posts_path(school_class_id: @school_class.id, offset: ((i+1)*8)), remote: true )%>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
 
-  <!-- Multimedia -->
-  <div id="add-media-modal" class="modal">
-    <div class="modal-content">
-      <%= render partial: 'posts/form_for_multimedia', school_class: @school_class, multimedia_post: @multimedia_post %>
+  <!-- Modal Structure -->
+    <!-- Aviso -->
+    <div id="add-post-modal" class="modal">
+      <div class="modal-content">
+        <%= render partial: 'posts/form', school_class: @school_class, post: @post %>
+      </div>
     </div>
-  </div>
 
-  <!-- Comunicación -->
-  <div id="add-comm-modal" class="modal">
-    <div class="modal-content">
-      <h4>Agregar Comunicación</h4>
-      <p>Configurar form aquí...</p>
+    <!-- Multimedia -->
+    <div id="add-media-modal" class="modal">
+      <div class="modal-content">
+        <%= render partial: 'posts/form_for_multimedia', school_class: @school_class, multimedia_post: @multimedia_post %>
+      </div>
     </div>
-  </div>
 
-<!--  Contenido principal -->
-  <ul class="list">
-    <li>&nbsp</li>
-    <li>&nbsp</li>
-    <li>En este hermoso partial cargado con AJAX irán las COMUNICACIONES...</li>
-  </ul>
+    <!-- Comunicación -->
+    <div id="add-comm-modal" class="modal">
+      <div class="modal-content">
+        <%= render partial: 'posts/form_for_communication', school_class: @school_class, communication_post: @communication_post %>
+      </div>
+    </div>
+
+  <!--  Contenido principal -->
+    <% unless @communication_posts.count == 0 %>
+      <div id="multimedia_cards">
+        <% counter = 0 %>
+        <div class="row">
+          <% @communication_posts.limit(8).offset(@offset).each do |c_post| %>
+            <div class="col s3">
+              <div class="card small">
+                <div class="card-image">
+                  <img class="materialboxed" src="<%= c_post.thumbnail.url %>"/>
+                </div>
+                <span class="card-title center-align"><h5 style="color: white;"><%= c_post.title %></h5></span>
+                <%= link_to school_class_communication_post_path(@school_class.id, c_post.id), { method: :delete, data: { confirm: 'Are you sure?' }, id: 'delete_multimedia', class: 'btn-floating btn waves-effect waves-light red' } do %>
+                <i class="material-icons">delete</i>
+                <% end %>
+              </div>
+            </div>
+            <% counter += 1 %>
+            <% if counter == 4 %>
+                </div>
+                <div class="row">
+            <% elsif counter == 8 %>
+                </div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>

@@ -55,9 +55,11 @@ class HomeController < ApplicationController
     # En caso de crear un nuevo post:
     @post = Post.new
     @multimedia_post = MultimediaPost.new
+    @communication_post = CommunicationPost.new
 
-    # En caso de venir de la pestaña multimedia
+    # En caso de venir de alguna pestaña
     @multimedia = params[:multimedia]
+    @communication = params[:communication]
   end
 
   def configuracion

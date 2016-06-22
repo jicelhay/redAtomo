@@ -14,6 +14,7 @@ class PostsController < ApplicationController
     # En caso de crear un nuevo post:
     @post = Post.new
     @multimedia_post = MultimediaPost.new
+    @communication_post = CommunicationPost.new
 
     # Contenido
     @posts = @school_class.posts
@@ -26,9 +27,11 @@ class PostsController < ApplicationController
   def multimedia_from_school_class
     @user = current_user
     @school_class = SchoolClass.find(params[:school_class_id])
+
     # En caso de crear un nuevo post:
     @post = Post.new
     @multimedia_post = MultimediaPost.new
+    @communication_post = CommunicationPost.new
 
     # Contenido
     @multimedia_posts = MultimediaPost.all # TODO: @school_class.multimedia_posts
@@ -43,12 +46,14 @@ class PostsController < ApplicationController
   def comunicaciones_from_school_class
     @user = current_user
     @school_class = SchoolClass.find(params[:school_class_id])
-    @posts = (@school_class).posts
+
     # En caso de crear un nuevo post:
     @post = Post.new
     @multimedia_post = MultimediaPost.new
+    @communication_post = CommunicationPost.new
 
     # Contenido
+    @communication_posts = CommunicationPost.all
 
     respond_to do |format|
       format.js
