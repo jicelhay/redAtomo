@@ -1,5 +1,5 @@
 class ParentObligationController < ApplicationController
-before_action :set_parent
+  before_action :set_parent
 
   def create
   end

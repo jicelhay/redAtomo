@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160622194534) do
+ActiveRecord::Schema.define(version: 20160622221227) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,14 @@ ActiveRecord::Schema.define(version: 20160622194534) do
     t.string   "pdf_base64"
     t.integer  "school_class_id"
   end
+
+  create_table "communication_posts_users", id: false, force: :cascade do |t|
+    t.integer "communication_post_id", null: false
+    t.integer "user_id",               null: false
+  end
+
+  add_index "communication_posts_users", ["communication_post_id"], name: "index_communication_posts_users_on_communication_post_id", using: :btree
+  add_index "communication_posts_users", ["user_id"], name: "index_communication_posts_users_on_user_id", using: :btree
 
   create_table "likes", force: :cascade do |t|
     t.integer  "user_id"

@@ -22,7 +22,6 @@
 #  image_file_size        :integer
 #  image_updated_at       :datetime
 #
-
 class User < ActiveRecord::Base
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
@@ -30,17 +29,19 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   acts_as_token_authenticatable
-         
+
   has_many :posts
   has_many :likes
   has_many :parent_obligations
   has_many :parent_classes, through: :parent_obligations, source: :school_class
   has_many :school_classes
   has_many :comments
+  has_and_belongs_to_many :signed_communications, class_name: 'CommunicationPost', join_table: :communication_posts_users
+
   has_attached_file :image, styles: { thumb: ["64x64#", :jpg] }, default_url: ":style/avatar.png"
-  
+
   validates_attachment :image,
-                     content_type: { content_type: ["image/jpeg", "image/png"] }
-  validates :name, presence: true                   
-     
+                       content_type: { content_type: ["image/jpeg", "image/png"] }
+  validates :name, presence: true
+
 end

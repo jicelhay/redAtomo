@@ -65,6 +65,7 @@
         <div class="row">
           <% @communication_posts.limit(8).offset(@offset).each do |c_post| %>
             <div class="col s3">
+              Firmantes: <%= c_post.signers.count.to_s %>
               <div class="card small">
                 <div class="card-image">
                   <img class="materialboxed" src="<%= c_post.thumbnail.url %>"/>
