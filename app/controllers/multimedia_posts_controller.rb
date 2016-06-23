@@ -25,6 +25,14 @@ class MultimediaPostsController < ApplicationController
   # POST /multimedia_posts.json
   def create
     @multimedia_post = MultimediaPost.new(multimedia_post_params)
+    if @multimedia_post.img_file_name.include? ".mp4"
+      @multimedia_post.update(:is_video => true)
+      @multimedia_post.update(:video => true)
+    else
+      @multimedia_post.update(:is_video => false)
+      @multimedia_post.update(:video => false)
+    end
+
     @school_class = SchoolClass.find(params[:school_class_id])
     @multimedia_post.school_class = @school_class
 
