@@ -37,7 +37,7 @@ class CommunicationPostsController < ApplicationController
     @communication_post.thumbnail = file
     file.close
 
-    pdf_base64 = Base64.encode64(open("/tmp/redatomo-pdf-thumbnail.jpg") { |io| io.read })
+    pdf_base64 = Base64.encode64(open(pdf_path) { |io| io.read })
     @communication_post.pdf_base64 = pdf_base64
 
     respond_to do |format|
