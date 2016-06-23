@@ -27,7 +27,7 @@ class Api::APIController < ActionController::Base
 
   def set_pagination
     @page =	(!params[:page].nil?)	?	params[:page].to_i	: 1
-    @per_page = (!params[:per_page].nil?)	?	params[:per_page].to_i	: 8
+    @per_page = (!params[:per_page].nil?)	?	params[:per_page].to_i	: 6
   end
 
 end

@@ -12,6 +12,15 @@ Rails.application.routes.draw do
 
     get 'comments' => 'comments#index'
     post 'comments/create' => 'comments#create'
+
+    get 'pictures' => 'multimedia_posts#pictures'
+    get 'videos' => 'multimedia_posts#pictures'
+
+    get 'communications' => 'communication_posts#index'
+    get 'communication' => 'communication_posts#show'
+
+    post 'signcommunication' => 'communication_posts#sign_comunication'
+
   end
 
   root 'home#index'

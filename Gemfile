@@ -52,6 +52,9 @@ gem 'pdfkit'
 # Thumbnails de los PDF (Requires 'sudo apt-get install libmagickwand-dev')
 gem 'rmagick', '~> 2.15', '>= 2.15.4'
 
+# Paginar respuestas de API
+gem 'will_paginate', '~> 3.1.0'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
