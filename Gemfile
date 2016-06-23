@@ -41,8 +41,10 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 # Material theme
 gem 'materialize-sass'
 
-# Manejo de fotos
+# Manejo de fotos y videos
 gem 'paperclip', '~> 4.2'
+gem 'paperclip-av-transcoder'
+
 
 # Para facilitar la creacion de forms (Es opcional su uso)
 gem 'simple_form'
